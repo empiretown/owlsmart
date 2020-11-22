@@ -51,7 +51,7 @@ app.get("/users/logout", (req, res) => {
 
 app.get("/users/dashboard", (req, res) => {
     res.render("dashboard", {
-        user: req.user.Username
+        user: req.user.username
     })
 });
 
