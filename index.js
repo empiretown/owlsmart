@@ -1,5 +1,6 @@
 var express = require ('express');
 var app = express();
+const ejs = require("ejs");
 var bcrypt = require('bcrypt');
 const {Pool} = require('pg');
 var session = require ('express-session');
