@@ -122,6 +122,19 @@ img, p{
     width: 100%;
   }
 }
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.cont-cont-container{
+    padding: 2px 16px;
+}
+
 
 @media only screen and (min-width: 400px) {
   img,p {
@@ -194,6 +207,11 @@ img, p{
 <section>
     <div><h2>What we Offer</h2></div>
     <hr>
+    <div class="card">
+        <img src="https://i.postimg.cc/bw5Dg1rG/library.png" alt="library" style="width:100%">
+        <div class="cont-container"></div>
+        <h4>Online Library</h4>
+    </div>
     
 </section>
 <div class="container-fluid  mx-auto navbar fixed-bottom">
