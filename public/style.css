@@ -1,3 +1,8 @@
-.sideMenu{
+#sideMenu{
     background-color:#e0ddd6 ;
+    max-width: 280px;
+}
+
+nav::a{
+    display: block
 }
