@@ -106,10 +106,24 @@
       padding-left: 50px;
     }
     @media screen and (max-width: 600px){
-      .menu a:not(:first-child) {
+      a a:not(:first-child) {
         display: none;
       }
+      a a.icon{
+        float: right;
+        display: block;
+      }
       
+    }
+
+    @media screen  and (max-width: 980px){
+       a .responsive {
+         position: relative;
+       } a .responsive .icon {
+         position: absolute;
+         right: 0;
+         top: 0;
+       }
     }
 </style>
 </head>
@@ -121,13 +135,14 @@
          <div class="menu">
             <ul>
               <li class="logo"><img src="https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset=""></li>
+             
               <li class="active"><a href="/">Home</a></li>
-              <li><a href="#">What we offer</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Prices</a></li>
-              <li><a class="signup-btn" href="/user/register"><span>Sign Up</span></a></li>
-              <li><a  class="login-btn" href="/users/login"><span>Login</span></a></li>
+              <li><a id="myTopnav" href="#">What we offer</a></li>
+              <li><a id="myTopnav" href="#">About Us</a></li>
+              <li><a id="myTopnav" href="#">Contact Us</a></li>
+              <li><a id="myTopnav" href="#">Prices</a></li>
+              <li><a id="myTopnav" class="signup-btn" href="/user/register"><span>Sign Up</span></a></li>
+              <li><a id="myTopnav" class="login-btn" href="/users/login"><span>Login</span></a></li>
               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
               </a>
