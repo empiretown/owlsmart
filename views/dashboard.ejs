@@ -1,49 +1,59 @@
-<style>
-  #sideMenu{
-    background-color:#e0ddd6 ;
-    max-width: 200px;
-    height: 100%;
-}
-nav{
-  padding-top: 100px;
-}
-
-h4, .log {
-  float: right;
-  display: flex;
-  flex-direction: row-reverse;
-}
-h1{
-  float: left;
-}
-a{
-    display: block;
-    color: black;
-    text-decoration: none;
-    padding: 15px 30px;
-    
-}
-.active{
-   background-color: blue;
-   border-left: 5px solid blueviolet;
-   padding: 15px 30px 15px 25px;
-}
-
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Document</title>
+  <style>
+    #sideMenu{
+      background-color:#e0ddd6 ;
+      max-width: 200px;
+      height: 100%;
+  }
+  nav{
+    padding-top: 100px;
+  }
+  
+  h4, .log {
+    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  h1{
+    float: left;
+  }
+  a{
+      display: block;
+      color: black;
+      text-decoration: none;
+      padding: 15px 30px;
+      
+  }
+  .active{
+     background-color: blue;
+     border-left: 5px solid blueviolet;
+     padding: 15px 30px 15px 25px;
+  }
+  
+  </style>
+</head>
 <body>
-    <h1>Dashboard</h1>
+  <h1>Dashboard</h1>
 
-    <a class="log" href="/users/logout">Logout</a>
+  <a class="log" href="/users/logout">Logout</a>
 
-    <h4>Hello <%= user %></h4>
-    <section id="sideMenu"> 
-      <nav>
-        <a href="#" class="active">Course Dashboard</a>
-        <a href="#">Course Dashboard</a>
-        <a href="#">Course Dashboard</a>
-        <a href="#">Course Dashboard</a>
+  <h4>Hello <%= user %></h4>
+  <section id="sideMenu"> 
+    <nav>
+      <a href="#" class="active">Course Dashboard</a>
+      <a href="#">Course Dashboard</a>
+      <a href="#">Course Dashboard</a>
+      <a href="#">Course Dashboard</a>
 
-      </nav>
+    </nav>
 
-    </section>
-  </body>
+  </section>
+</body>
+</html>
+
