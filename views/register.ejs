@@ -374,28 +374,29 @@ justify-content: center;
         <% }) %> <% } %>
       </ul>
     
-      <div class="content">
-    
+      <div class="container">
+    <div class="login-content">
     <form action="/user/register"  method="POST">
-        <div class="form-group">
+        <div class="div">
            <input type="text" name="username" id="" placeholder="Username"> 
         </div>
     
-        <div class="form-group">
+        <div class="div">
            <input type="text" name="email" id="" placeholder="Email">
         </div>
-        <div class="form-group">
+        <div class="div">
             <input type="text" name="password" id=""  placeholder="Password">
         </div>
          
-        <div class="form-group">
+        <div class="div">
             <input type="text" name="password2" id="" placeholder="Confirm Password">
         </div>
-        <button type="submit" class="btn btn-default btn-success">
+        <button type="submit" class="btn">
             Register 
         </button>
         <a href="/users/login">Already Registered ? Login here</a>
     </form>
+  </div>
 </div>
 
       <div class="container-fluid mx-auto">
