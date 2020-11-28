@@ -189,7 +189,48 @@
   <% if (typeof message !== 'undefined' ) { %>
     <p><%= message %></p>
     <% } %>
-        <div class="navbar">
+    <header class="l-header">
+      <nav class="nav bd-grid">
+          <div>
+              <a href="#" class="nav__logo"><img src="https://i.postimg.cc/fTsd946b/logo.jpg"></a>
+          </div>
+          
+          <div class="nav__toggle" id="nav-toggle">
+              <i class='bx bx-menu'></i>
+          </div>
+
+          <div class="nav__menu" id="nav-menu">
+              <div class="nav__close" id="nav-close">
+                  <i class='bx bx-x'></i>
+              </div>
+
+              <ul class="nav__list">
+                  <li class="nav__item"><a href="/" class="nav__link active">Home</a></li>
+                  <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                  <li class="nav__item"><a href="/user/register" class="nav__link">Sign up</a></li>
+                  <li class="nav__item"><a href="/users/login" class="nav__link">Login</a></li>
+              </ul>
+          </div>
+      </nav>
+  </header>
+
+  <main class="l-main">
+    <!--===== HOME =====-->
+    <section class="home" id="home">
+        <div class="home__container bd-grid">
+            <div class="home__img">
+              <img src="https://i.postimg.cc/SQL6V7FV/3788190.jpg" alt="learning online" >
+            </div>
+
+            <div class="home__data">
+              <p>LearnAFrica is platform built to provide opportunity<br />for learning at anytime or anywhere. 
+                We want the<br />students to have opportunity to have access to their<br />homeworks, classwork 
+                and outside curricula activity<br />from whereever they are. Let's work together<br /> to make a change.</p>
+            </div>
+        </div>
+    </section>
+</main>
+        <!-- <div class="navbar">
           <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fas fa-bars"></i>
         </span>
@@ -229,7 +270,7 @@
             <h4>What we offer</h4>
           </section>
         </header>
-        </div>
+        </div> -->
 
        
     <!-- <div class="background">
