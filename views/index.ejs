@@ -105,50 +105,39 @@
       margin-top: -20px;
       padding-left: 50px;
     }
-    @media screen and (max-width: 600px){
-      a a:not(:first-child) {
-        display: none;
-      }
-      a a.icon{
-        float: right;
-        display: block;
-      }
-      
-    }
 
-    @media screen  and (max-width: 980px){
-       a .responsive {
-         position: relative;
-       } a .responsive .icon {
-         position: absolute;
-         right: 0;
-         top: 0;
-       }
-    }
+
+   
 </style>
 </head>
 <body>
   <% if (typeof message !== 'undefined' ) { %>
     <p><%= message %></p>
     <% } %>
-        <div class="container" id="myTopnav">
-         <div class="menu">
-            <ul>
-              <li class="logo"><img src="https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset=""></li>
-             
-              <li class="active"><a href="/">Home</a></li>
-              <li><a id="myTopnav" href="#">What we offer</a></li>
-              <li><a id="myTopnav" href="#">About Us</a></li>
-              <li><a id="myTopnav" href="#">Contact Us</a></li>
-              <li><a id="myTopnav" href="#">Prices</a></li>
-              <li><a id="myTopnav" class="signup-btn" href="/user/register"><span>Sign Up</span></a></li>
-              <li><a id="myTopnav" class="login-btn" href="/users/login"><span>Login</span></a></li>
-              <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-              </a>
-            </ul>
+        <div class="container">
+          <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+        <a href="#" class="logo"><img src=" https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset=""></a>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="#" class="nav-links">Home</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Products</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">About Us</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Contact Us</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Blog</a>
+            </li>
+        </ul>
          </div>
-          
+        
          <div class="banner"> 
           <div class="text-left">
             <p>LearnAFrica is platform built to provide opportunity<br />for learning at anytime or anywhere. 
@@ -252,14 +241,7 @@
     </div>
 </div> -->
 <script>
-  function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+ 
 </script>
 </body>
 </html>
