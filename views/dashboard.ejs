@@ -7,10 +7,14 @@ nav{
   padding-top: 100px;
 }
 
-h4{
+h4, .log {
+  float: right;
+  display: flex;
+  flex-direction: row-reverse;
+}
+h1{
   float: right;
 }
-
 a{
     display: block;
     color: black;
@@ -27,7 +31,7 @@ a{
 <body>
     <h1>Dashboard</h1>
 
-    <a href="/users/logout">Logout</a>
+    <a class="log" href="/users/logout">Logout</a>
 
     <h4>Hello <%= user %></h4>
     <section id="sideMenu"> 
