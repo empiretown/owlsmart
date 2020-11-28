@@ -17,9 +17,20 @@
     .container {
       width: 100%;
       height: 100%;
-      background-color: #42455a;
+      
     }
-    </style>
+    .menu ul{
+       display: inline-flex;
+       margin: 50px;
+    }
+    
+    .menu ul li {
+      list-style: none;
+      margin: 0 20px;
+      color: #F4F4F1;
+      cursor: pointer;
+    }
+</style>
 </head>
 <body>
   <% if (typeof message !== 'undefined' ) { %>
@@ -28,7 +39,7 @@
         <div class="container">
          <div class="menu">
             <ul>
-              <li><img src="https://i.postimg.cc/fW1hyBdB/logo.jpg" alt="" srcset=""></li>
+              <li><img src="https://i.postimg.cc/0Q6pNkgW/logo.jpg" alt="" srcset=""></li>
               <li><a href="/">Home</a></li>
               <li><a href="#">What we offer</a></li>
               <li><a href="#">About Us</a></li>
