@@ -45,38 +45,39 @@
   background-color: #f1f1f1;
 }
 
-    #sideMenu{
-      background-color:#e0ddd6 ;
-      max-width: 200px;
-      height: 100%;
-      
-  }
-  
-  nav{
-    padding-top: 100px;
-    
-  }
-  
-  h4, .log {
-    float: right;
-    display: flex;
-    flex-direction: row-reverse;
-  }
-  h1{
-    float: left;
-  }
-  a{
-      display: block;
-      color: black;
-      text-decoration: none;
-      padding: 15px 30px;
-      
-  }
-  .active{
-     background-color: blue;
-     border-left: 5px solid blueviolet;
-     padding: 15px 30px 15px 25px;
-  }
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
   
   </style>
 </head>
@@ -90,18 +91,16 @@
     Hello <%= user %>
   </h4>
   <section id="sideMenu"> 
+    <div class="sidebar">
+      <a href="#home"><i class="fa fa-fw fa-home"></i> Course Dashboard</a>
+      <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
+      <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+      <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+    </div>
     
-    <nav>
-      <a href="#" class="active"><i class="fas fa-tachometer-alt"></i>Course Dashboard</a>
-      <a href="#">Course Dashboard</a>
-      <a href="#">Course Dashboard</a>
-      <a href="#">Course Dashboard</a>
-
-    </nav>
-
   </section>
    
-  <section class="content-area">
+  <section class="main">
    <div>
     <h1>Dashboard</h1>
    </div>
