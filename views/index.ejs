@@ -16,42 +16,12 @@
   
     }
    
-/* cards for wat we offer */
-
-.columnMore {
-  float: left;
-  width: 80px;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.rowmore {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.rowmore:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .columnMore{
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.cardLeft {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-/* close */
+/* p {
+    font-size: 14px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+} */
 
 
 .container-fluid {
@@ -242,31 +212,27 @@ img{
 <section>
     <div><h2>What we Offer</h2></div>
     <hr>
-    <div class="rowmore">
-      <div class="columnMore">
-        <div class="cardLeft">
-          <h3>Card 1</h3>
-          <p>Some text</p>
-          <p>Some text</p>
+    <div class="card-deck">
+      <div class="card" style="width: 20px; margin-left: 40px;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
-    
-      <div class="column">
-        <div class="card">
-          <h3>Card 2</h3>
-          <p>Some text</p>
-          <p>Some text</p>
+      <div class="card" style="width: 5rem; ">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
-      
-      <div class="column">
-        <div class="card">
-          <h3>Card 3</h3>
-          <p>Some text</p>
-          <p>Some text</p>
+      <div class="card" style="width: 5rem;  margin-right: 40px;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
-      
+    </div>
+   
 </section>
 <!-- <div class="container-fluid  mx-auto navbar fixed-bottom">
     <div class="row">
