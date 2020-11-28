@@ -17,16 +17,16 @@
     .container {
       width: 100%;
       height: 100%;
-      background-color: #5C4A8C;
+      background-color: #42455a;
     }
     </style>
 </head>
 <body>
-    
+  <% if (typeof message !== 'undefined' ) { %>
+    <p><%= message %></p>
+    <% } %>
         <div class="container">
-          <% if (typeof message !== 'undefined' ) { %>
-            <p><%= message %></p>
-            <% } %>
+         <div
         </div>
     <!-- <div class="background">
     <nav class="navbar navbar-expand-lg navbar-light">
