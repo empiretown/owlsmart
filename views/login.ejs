@@ -136,7 +136,7 @@
 	justify-content: flex-start;
 	align-items: center;
   text-align: center;
-  box-sizing: border-box;
+  
 }
 
 .img img{
@@ -353,25 +353,26 @@ a:hover{
               </li>
           </ul>
            </div>
-      <ul>
-        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
-        <li><%= error.message %></li>
-        <% }) %> <% } %>
-      </ul>
-    
-      <ul>
-        <% if(messages.success_msg) { %>
-        <li><%= messages.success_msg %></li>
-        <% } %>
-      </ul>
-    
-      <ul>
-        <% if (messages.error) { %>
-        <li><%= messages.error %></li>
-        <% } %>
-      </ul>
-    
-   
+      
+      <div style="box-shadow: 2px;">
+        <ul>
+          <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+          <li><%= error.message %></li>
+          <% }) %> <% } %>
+        </ul>
+      
+        <ul>
+          <% if(messages.success_msg) { %>
+          <li><%= messages.success_msg %></li>
+          <% } %>
+        </ul>
+      
+        <ul>
+          <% if (messages.error) { %>
+          <li><%= messages.error %></li>
+          <% } %>
+        </ul>
+      
       <div class="container">
         <div class="img">
           <img src="https://i.postimg.cc/pX9dFTqx/online-registration-sign-up-with-man-sitting-near-smartphone-268404-95.jpg">
@@ -389,6 +390,7 @@ a:hover{
       <button type="submit" class="btn">
         Login
      </button>
+    </div>
       
         <!-- <div class="form-group">
            <input type="text" name="email" id="" placeholder="Email"> 
