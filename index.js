@@ -17,6 +17,7 @@ const connectionString = process.env.DATABASE_URL || "postgres://owlsmart01user:
 const pool = new Pool ({connectionString: connectionString});
 
 app.use(express.urlencoded({extended: false}));
+app.use(express.static('public'))
 
 app.use(
     session({
