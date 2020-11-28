@@ -18,17 +18,17 @@
    
 /* cards for wat we offer */
 
-.column {
+.columnMore {
   float: left;
   width: 80px;
   padding: 0 10px;
 }
 
 /* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
+.rowmore {margin: 0 -5px;}
 
 /* Clear floats after the columns */
-.row:after {
+.rowmore:after {
   content: "";
   display: table;
   clear: both;
@@ -36,7 +36,7 @@
 
 /* Responsive columns */
 @media screen and (max-width: 600px) {
-  .column {
+  .columnMore{
     width: 100%;
     display: block;
     margin-bottom: 20px;
@@ -44,7 +44,7 @@
 }
 
 /* Style the counter cards */
-.card {
+.cardLeft {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
@@ -242,9 +242,9 @@ img{
 <section>
     <div><h2>What we Offer</h2></div>
     <hr>
-    <div class="row">
-      <div class="column">
-        <div class="card">
+    <div class="rowmore">
+      <div class="columnMore">
+        <div class="cardLeft">
           <h3>Card 1</h3>
           <p>Some text</p>
           <p>Some text</p>
