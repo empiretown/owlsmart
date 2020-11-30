@@ -6,7 +6,7 @@ const {Pool} = require('pg');
 const connectionString = process.env.DATABASE_URL || "postgres://owlsmart01user:owl@localhost:5432/owlsmart";
 const pool = new Pool ({connectionString: connectionString});
 
-module.exports = function initialize(passport) {
+function initialize(passport) {
     const authenticateUser = (email, pass, done)=> {
         pool.query(
             'SELECT * FROM users WHERE email = $1::text', [email],
