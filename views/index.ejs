@@ -4,358 +4,647 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OWLSMARTLEARNING</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="/node-js-getting-started/public/stylesheets/main.css"> -->
-    <style>
-   * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-        body {
-            font-family: 'Josefin Sans', sans-serif;
-            width:90%;
-            margin: 2rem auto;
-        }
-
-        .navbar {
-            font-size: 18px;
-    
-            padding-bottom: 10px;
-        }
-
-        .main-nav {
-            list-style-type: none;
-            display: none;
-        }
-
-     
-
-        .nav-links,
-        .logo {
-            text-decoration: none;
-            color: #444444;
-        }
-
-        .main-nav li {
-            text-align: center;
-            margin: 15px auto;
-        }
-
-        .logo {
-            display: inline-block;
-          
-            font-size: 22px;
-            margin-top: -10px;
-            margin-left: 20px;
-        }
-
-        .navbar-toggle {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            cursor: pointer;
-            color: #444444;
-            font-size: 24px;
-            padding-bottom: 20px;
-          
-        }
-
-        .active {
-            display: block;
-
-        }
-        @media screen and (min-width: 1200px) {
-           img{
-             display: inline;
-           }
-        }
-
-        @media screen and (min-width: 768px) {
-            .navbar {
-                display: flex;
-                justify-content: space-between;
-                padding-bottom: 0;
-                height: 70px;
-                align-items: center;
-            }
-            
-            
-            .main-nav {
-                display: flex;
-                margin-right: 100px;
-                flex-direction: row;
-                justify-content: space-around;
-            }
-
-            .main-nav li {
-                margin: 0;
-            }
-
-            .nav-links {
-                margin-left: 40px;
-            }
-
-            .logo {
-                margin-top: 25px;
-            }
-
-            .navbar-toggle {
-                display: none;
-                
-            }
-            .navbar-toggle:hover {
-              color: #7f53ac;
-              background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);  
-              border-radius: 12px;
-            }
-          
-            .nav-links:hover {
-              color: #7f53ac;
-              background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);  
-              border-radius: 12px;
-              padding: 2px 5px 1px 5px;
-      
-            }
-        }
-    
-    #signup-btn{
-      top: 40px;
-      right: 20px;
-      position: absolute;
-      border: 2px solid transparent;
-      color: #ffffff;
-      border-radius: 20px;
-      background-image: linear-gradient(#42455a, #42455a), radial-gradient(circle at top left, #fd00da, #19d7f8);
-      background-origin: border-box;
-      background-clip: content-box, border-box;
-    }
-    #login-btn{
-      top: 40px;
-      right: 125px;
-      padding-left: 15px;
-      position: absolute;
-      border: 2px solid transparent;
-      color: #ffffff;
-      border-radius: 20px;
-      background-image: linear-gradient(#42455a, #42455a), radial-gradient(circle at top left, #fd00da, #19d7f8);
-      background-origin: border-box;
-      background-clip: content-box, border-box;
-    }
-    #signup-btn span{
-      display: block;
-      padding: 8px 10px;
-    }
-    #login-btn span {
-      display: block;
-      padding: 8px 10px;
-    }
-    .banner{
-      width: 80%;
-      height: 70%;
-      top: 35%;
-      left: 130px;
-      position: absolute;
-      color: #444444;
-    }
-    @media only screen and (max-width: 978px ) {
-       .app-pics img{
-         display: none;
-         bottom: -0;
-         position: absolute;
-         width:100%;
-         margin-left: -230px;
-         
-       
-       }
-       .text-left p{
-       min-width: 100px;
-       font-size: 11px;
-       float: left;
-      
-      
-    }
-    body {
-      margin: auto;
-    }
-    }
-    
-    .text-left {
-      width: 50%;
-      float: left;
-      position: relative;
-    }
-    
-    .text-left p{
-      width: 650px;
-      font-size: 19px;
-      margin: 30px 0 30px 40px;
-      line-height: 25px;
-      color: #b19bda;
-    }
-    .app-pics {
-      width: 50%;
-      float: right;
-    }
-    .app-pics img {
-      width: 100%;
-      margin-top: -30px;
-      padding-left: 50px;
-      
-    
-    }
-
    
-</style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <style>
+      :root {
+    --default: #5828b0;
+    --bg-color: #ffffff;
+    --dark-color: #3c4858;
+    --grey: #8492a6;
+    --white: #000000;
+    --black: #000;
+}
+
+/* ========== Reset ========== */
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 996px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Tinos", sans-serif;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 114rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media only screen and (max-width: 996px) {
+    .container {
+        padding: 0 3rem;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    /* max-height: 100%; */
+}
+
+/* ============ header ============ */
+.dropdown .dropdownbtn {
+   border: none;
+   outline: none;
+   color: black;
+   font-size: inherit;
+   padding: 14px 16px;
+   background-color: inherit;
+   font-family: inherit;
+   margin: 0;
+   cursor: pointer;
+}
+
+.dropdown-content{
+    display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.header {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.navigation {
+    padding: 1.5rem 0;
+}
+
+.nav__center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav__center .nav__menu {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.hamburger {
+    display: none;
+}
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo h1 {
+    font-size: 3.5rem;
+    color: var(--white);
+}
+
+.nav__logo span {
+    margin-right: 1.6rem;
+}
+
+.nav__logo svg {
+    width: 4rem;
+    height: 4rem;
+    fill: var(--white);
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.nav__list .nav__item:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.nav__list .nav__link:link,
+.nav__list .nav__link:visited {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    color: var(--white);
+    font-weight: 600;
+    transition: all 300ms ease-in-out;
+}
+
+.nav__list .nav__link:hover {
+    color: var(--grey);
+}
+
+.nav__list .nav__item:last-child .nav__link {
+    padding: 1rem 2rem;
+    background-color: var(--default);
+    border-radius: 3rem;
+    border: 1px solid var(--default);
+    transition: all 300ms ease-in-out;
+}
+
+.nav__list .nav__item:last-child .nav__link:hover {
+    background-color: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+    .nav__menu {
+        justify-content: center;
+        position: absolute;
+        top: 10%;
+        left: 0;
+        background-color: var(--black);
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 300ms ease-in-out;
+    }
+
+    .nav__list {
+        padding: 1.6rem 0;
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger img{
+        width: 3.5rem;
+        height: 3.5rem;
+        fill: var(--white);
+    }
+
+    .nav__logo h1 {
+        font-size: 3rem;
+    }
+
+    .nav__logo svg {
+        width: 3rem;
+        height: 3rem;
+        fill: var(--white);
+    }
+
+    .nav__list .nav__item:not(:last-child) {
+        margin: 0 0 1rem;
+    }
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 8.25rem);
+    width: 100%;
+}
+
+.banner__center {
+    display: flex;
+    align-items: center;
+}
+
+.banner__right {
+    flex: 1 1 30%;
+    padding-left: 45px;
+    
+}
+
+.banner__left {
+    color: var(--white);
+    margin-right: 2rem;
+    flex: 1 1 50%;
+}
+
+.banner__left span {
+    display: inline-block;
+    color: var(--grey);
+    margin-bottom: 1.5rem;
+}
+
+.banner__left h1 {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+}
+
+.banner__left p {
+    color: var(--grey);
+    margin-bottom: 3rem;
+}
+
+.banner__left a:link,
+.banner__left a:visited {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--default);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    .banner__left span {
+        margin-bottom: 1rem;
+    }
+
+    .banner__left h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .banner__left p {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 996px) {
+    .banner__left span {
+        font-size: 1.4rem;
+    }
+
+    .banner__left h1 {
+        font-size: 3rem;
+    }
+
+    .banner__left p {
+        font-size: 1.4rem;
+    }
+
+    .banner__left a:link,
+    .banner__left a:visited {
+        padding: 0.7rem 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .banner__center {
+        flex-direction: column;
+    }
+
+    .banner__left {
+        color: var(--white);
+        margin: 0 0 2rem;
+        flex: 1 1 50%;
+    }
+
+    .banner__left span {
+        font-size: 1.3rem;
+    }
+
+    .banner__left h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner__left p {
+        font-size: 1.3rem;
+    }
+}
+
+/* ========== Products ========== */
+main {
+    background-color:rgb(98,81,169,0.6);
+    
+}
+.products {
+    height: 90vh;
+    position: relative;
+   
+}
+
+.product__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.product__left,
+.product__right {
+    flex: 1 1 50%;
+}
+
+.product__left {
+    max-width: 90%;
+}
+
+.product__right {
+    width: 90%;
+    margin-left: 2rem;
+}
+
+.product__right h1 {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.product__right p {
+    color: black;
+    margin-bottom: 3rem;
+}
+
+.product__right a {
+    display: inline-block;
+    padding: 1rem 3rem;
+    color: var(--white);
+    background-color: var(--default);
+    border-radius: 2rem;
+}
+
+@media only screen and (max-width: 996px) {
+    .products {
+        height: 70vh;
+        padding: 2rem 0;
+    }
+
+    .product__left {
+        margin-left: 2rem;
+        max-width: 50rem;
+    }
+
+    .product__right {
+        margin-left: 0;
+    }
+
+    .product__right h1 {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .products {
+        height: 90vh;
+    }
+
+    .product__center {
+        flex-direction: column;
+    }
+
+    .product__right h1 {
+        font-size: 3rem;
+    }
+}
+
+/* ============ Footer ============ */
+p {
+    font-size: inherit;
+    color: ivory;
+}
+.footer {
+    background-color: black;
+    padding: 6rem 0;
+    line-height: 3rem;
+}
+
+.footer-top__box span svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: var(--grey);
+}
+
+.footer-top__box span {
+    margin-right: 1rem;
+}
+
+.footer__top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: var(--white);
+}
+
+.footer-top__box a:link,
+.footer-top__box a:visited {
+    display: block;
+    color: var(--white);
+    font-size: 1.4rem;
+    transition: 0.6s;
+}
+
+.footer-top__box a:hover {
+    color: var(--grey);
+}
+
+.footer-top__box div {
+    color: var(--white);
+    font-size: 1.4rem;
+}
+
+.footer-top__box h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 998px) {
+    .footer__top {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 2rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer__top {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+}
+.show  {display: block;}
+
+.bar1, .bar2, .bar3{
+ width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);  
+}
+.change .bar2 {
+    opacity: 0;
+}
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+  </style>  
+
+
+
 </head>
 <body>
-  <% if (typeof message !== 'undefined' ) { %>
-    <p><%= message %></p>
-    <% } %>
-    <header>
-        <div class="navbar">
-          <span class="navbar-toggle" id="js-navbar-toggle">
-            <i class="fas fa-bars"></i>
-        </span>
-        <a href="#" class="logo"><img src=" https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset=""></a>
-        <ul class="main-nav" id="js-menu">
-            <li>
-                <a href="/" class="nav-links">Home</a>
-            </li>
-            <li>
-                <a href="#" class="nav-links">Products</a>
-            </li>
-            <li>
-                <a href="#" class="nav-links">About Us</a>
-            </li>
-            <li>
-                <a href="/user/register" id="" class="nav-links"><span>Sign Up</span></a>
-            </li>
-            <li>
-                <a href="/users/login" id="" class="nav-links"><span>Login</span></a>
-            </li>
-        </ul>
-         </div>
-        
-         <div class="banner"> 
-          <div class="text-left">
-            <p>LearnAFrica is platform built to provide opportunity<br />for learning at anytime or anywhere. 
-               We want the<br />students to have opportunity to have access to their<br />homeworks, classwork 
-               and outside curricula activity<br />from whereever they are. Let's work together<br /> to make a change.</p>
-          </div>
-          <div class="app-pics">
-            <img src="https://i.postimg.cc/SQL6V7FV/3788190.jpg" alt="learning online" >
-          </div>
-          
-          
-         </div>
-         
-        
-        </div>
-      </header>
+    <div>
+        <% if (typeof message !== 'undefined' ) { %>
+            <p><%= message %></p>
+            <% } %>
+    </div>
+    
 
-     
-       
-    <!-- <div class="background">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href=""><img src="https://i.postimg.cc/R0q4JH4X/logo.jpg" alt="OWLSMARTLEARNINGLOGO" srcset=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/users/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/user/register">Sign Up</a>
-            </li> -->
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
-          <!-- </ul>
-        </div>
-      </nav>
-    
-<main>
-    
-    <div class="container " style="margin-top: 40px;">
-        <div class="row">
-            <div class="ol-sm-4 col-md-4 col-xs-8">
-                <img src="https://i.postimg.cc/nhD0YNDy/example-30.png" style="height: 250px;
-                width: 250px; margin-bottom: 15px;" alt="">
+        <header class="header" id="header">
+            <!-- Navigation -->
+            <div class="navigation">
+              <nav class="nav__center container">
+                <div class="nav__logo">
+                  <span>
+                    <svg>
+                      <use xlink:href="./images/sprite.svg#icon-map2"></use>
+                    </svg>
+                  </span>
+                  <img src=" https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset="">
                 </div>
-                <div class="col-sm-8 col-md-8 col-xs-16" style="margin-top: 15px;">
-                <p>LearnAFrica is platform built to provide opportunity for learning at anytime or anywhere. 
-                <br />We want the students to have opportunity to have access to their homeworks, classwork 
-                <br />and outside curricula activity from whereever they are. Let's work together to make a change. </p>
-            </div>
-        </div>
-    </div>
-
-</main>
-
-
-
-
-</div>
-
-<section>
-    <div><h2>What we Offer</h2></div>
-    <hr>
-    <div class="card-deck">
-      <div class="card" style="width: 20px; margin-left: 40px;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-      <div class="card" style="width: 5rem; ">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-      <div class="card" style="width: 5rem;  margin-right: 40px;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-   
-</section> -->
-<!-- <div class="container-fluid  mx-auto navbar fixed-bottom">
-    <div class="row">
-        <div class="line mb-3 mx-auto"></div>
-        <div class="d-md-flex px-5 justify-content-around bd-highlight col-md-12 pt-5 pb-5 mb-3">
-            <div class="p-2 flex-fill bd-highlight mb-5 mb-md-0">
-                <h3>OWLSMART</h3> <small>Copyright &copy 2019</small>
+        
+                <div class="nav__menu" onclick="myFunction(this)">
+                  <ul class="nav__list">
+                    <li class="nav__item">
+                      <a href="/" class="nav__link">Home</a>
+                    </li>
+        
+                    <li class="nav__item">
+                      <a href="/users/login" class="nav__link">Login</a>
+                    </li>
+                    <div class="dropdown">
+                        <button onclick="myfunction()" class="dropdownbtn">For Teachers
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/users/teacherslogin">Login</a>
+                            <a href="/user/teachersregister">Sign Up</a>
+                            
+                          </div>
+                    </div>
+                    <li class="nav__item">
+                      <a href="" class="nav__link">Products</a>
+                    </li>
+        
+                    <li class="nav__item">
+                      <a href="/user/register" class="nav__link">Sign up</a>
+                    </li>
+                  </ul>
+                </div>
+        
+                <div class="hamburger" >
+                  <div class="bar1"></div>
+                  <div class="bar2"></div>
+                  <div class="bar3"></div>
+                  
+                </div>
+              </nav>
             </div>
         
-        </div>
-    </div>
-</div> -->
-<script>
- let mainNav = document.getElementById('js-menu');
-let navBarToggle = document.getElementById('js-navbar-toggle');
+            <!-- Banner -->
+            <div class="banner container">
+              <div class="banner__center">
+                <div class="banner__left">
+                  
+                  <h1>Learn Africa is the plaform that puts their core interest in making education easier and accessible</h1>
+                  <p>
+                   We want the students to have opportunity to access to their works anytime, anywhere just by a click
+                  </p>
+        
+                  
+                </div>
+                <div class="banner__right">
+                  <img src="https://i.postimg.cc/fyNhDd3N/20644.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </header>
+        
+          <!-- Main -->
+          <main>
+            <section class="section products" id="products">
+              <div class="product__center container">
+                <div class="product__left">
+                  <img style="width: 400px; padding: 5px 5px" src="https://i.postimg.cc/13rryCBt/32385.jpg" alt="" />
+                </div>
+                <div class="product__right">
+                  <h1>Best of breed tools meet best in class strategy</h1>
+                  <p>
+                    Unleash your video marketing potential and build a loyal audience
+                    of consumers with tools that ignite your fan base, and strategy to
+                    keep you on track. We've reinvented the way that brands engage
+                    consumers using video.
+                  </p>
+                  <a href=" https://bit.ly/34ZNDNH" target="blank">Register your school</a>
+                </div>
+              </div>
+            </section>
+          </main>
 
-navBarToggle.addEventListener('click', function () {
-  mainNav.classList.toggle('active');
-});
+          <footer id="footer" class="section footer">
+            <div class="footer__top container">
+              <div class="footer-top__box">
+               
+                <img src="https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset=""><span><p>Copyright by Learn Africa</p></span>
+          </footer>
+          <!-- End Footer -->
+
+<script>
+
+function myFunction(x) {
+  x.classList.toggle("change");
+}
+
+function myfunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdownbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
 </script>
 </body>
 </html>

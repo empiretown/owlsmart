@@ -11,6 +11,9 @@ const passport = require('passport');
 const intializedPassport = require('./passportConfig');
  intializedPassport(passport);
 
+const teacherIntializedPassport = require('./teacherConfig');
+teacherIntializedPassport(teacherPassport);
+
 const PORT = process.env.PORT || 4000
 
 const connectionString = process.env.DATABASE_URL || "postgres://owlsmart01user:owl@localhost:5432/owlsmart";
@@ -29,33 +32,98 @@ app.use(
 
 app.set('view engine', 'ejs')
 app.use(passport.initialize())  
+app.use(teacherPassport.initialize())
 app.use(passport.session()) 
+app.use(teacherPassport.session())
 app.use(flash())
 
+// homepage route
 app.get("/", (req, res) => {
     res.render("index");
 });
+// ends here
 
+// login users route
 app.get("/users/login", (req, res) => {
 
    res.render('login')
 });
+// ends here
 
+
+
+// registers user
 app.get("/user/register", (req, res) => {
     res.render("register")
 });
+// ends here
 
+
+
+
+// logout
 app.get("/users/logout", (req, res) => {
    req.logout();
    res.render('index', {massage: "You are logged out sucessfully"});
 });
+// logout all users ends here
 
+
+
+
+// users dashboard
 app.get("/users/dashboard", (req, res) => {
     res.render("dashboard", {
         user: req.user.username
     })
 });
+// ends here the redirect to the user dashboard
 
+// teachers login and registration getters
+app.get("/users/teacherslogin", (req, res) => {
+    res.render("teacherslogin");
+});
+app.get("/user/teachersregister", (req, res) => {
+    res.render("teachersregister");
+});
+// ends here
+
+// lesson dashboard
+
+app.get("/lessondashboard",  (req, res)=> {
+    var title = 'Hello World';
+    var sql = "SELECT title, descr, img, lesson_num, lesson_title, lesson_body FROM classes WHERE title=$1::text";
+    
+     var values = [title];
+      
+    pool.query(sql, values, function(err, data, fields){
+        if (err) {
+            console.log(err);
+        }
+        
+
+        res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data});
+        console.log({
+         data
+        })
+        console.log(
+            data.rows
+        )
+    });
+})
+
+// ends here
+
+// teacher dashboard
+app.get("/user/teacherdashboard", (req, res) => {
+    res.render("teacherdashboard")
+});
+// ends here
+
+
+
+
+// post the user information to the database
 app.post('/user/register', async (req, res) => {
   
   const username = req.body.username;
@@ -107,9 +175,9 @@ if (errors.length > 0) {
             if(results.rows.length > 0) {
                 errors.push({message: "Email already registered"});
                 res.render("register", { errors });
-                // return res.render("register", {
-                //   message: "Username already registered"
-                // });
+                return res.render("register", {
+                  message: "Username already registered"
+                });
        } else {
               
            pool.query(`INSERT INTO users (Username, email, pass)
@@ -135,12 +203,111 @@ if (errors.length > 0) {
 
   
 });
+// ends here users login process-->
 
+// teachers login process function
+
+app.post('/user/teachersregister', async (req, res) => {
+  
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const password2 = req.body.password2;
+    const schoolname = req.body.schoolname;
+    
+    let errors = [];
+    
+    console.log ({
+        username, 
+        email,
+        password,
+        password2,
+        schoolname
+    });
+  
+   
+  
+    if (!username || !email || !password || !password2 || !schoolname) {
+        errors.push({message: "Please enter all fields"});
+    }
+    
+  
+  if (password.length < 6) {
+        errors.push({ message: "Password must be at least 6 characters"});
+  }
+  
+  if (password !== password2) {
+      errors.push({ message: "Password do not match" });
+  }
+  if (errors.length > 0) {
+      res.render('register', {errors, username, email, password, password2});
+  } else {
+     let  hashedPassword = await bcrypt.hash(password, 10);
+      console.log(hashedPassword);
+  
+  
+      
+      pool.query(
+          `SELECT * FROM teacher WHERE email = $1::text`,
+          [email],
+          (err, results) => {
+              if (err) {
+                  console.log(err)
+              }
+              
+              console.log(results.rows);
+          
+              if(results.rows.length > 0) {
+                  errors.push({message: "Email already registered"});
+                  res.render("techersregister", { errors });
+                  return res.render("teachersregister", {
+                    message: "Username already registered"
+                  });
+         } else {
+                
+             pool.query(`INSERT INTO teacher (Username, email, pass, schoolname)
+                              VALUES ($1::text, $2::text, $3::text, $4::text)
+                              RETURNING id, pass, schoolname`,
+                              [username, email, hashedPassword, schoolname],
+                       (err, results) => {
+                          if (err) {
+                              throw err;
+                          }
+                          console.log(results.rows);
+                          req.flash('success_msg', 'Welcome, you can login in');
+                          res.redirect('/users/teacherslogin');
+                       });
+                    
+  
+       }
+  
+              
+      });
+  }
+  
+  
+    
+  });
+  
+
+// ends here-->
+
+// authenticate the user passport
 app.post('/users/login', passport.authenticate('local', {
     successRedirect: "/users/dashboard",
     failureRedirect: "/users/login",
     failureFlash: true
 })); 
+// ends here-->
+
+// authenticate the teacher passport
+app.post('/users/teacherslogin', teacherPassport.authenticate('local', {
+    successRedirect: "/user/teacherdashboard",
+    failureRedirect: "/user/teacherslogin",
+    failureFlash: true
+}));
+// ends here
+
 
 app.listen(PORT, () => {
     console.log(`Server is running ${PORT}`);
