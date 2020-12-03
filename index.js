@@ -7,6 +7,7 @@ var session = require ('express-session');
 const flash = require('express-flash');
 
 const passport = require('passport');
+const teacherPassport = require('passport')
 
 const intializedPassport = require('./passportConfig');
  intializedPassport(passport);
@@ -34,7 +35,7 @@ app.set('view engine', 'ejs')
 app.use(passport.initialize())  
 app.use(passport.session()) 
 app.use(teacherPassport.initialize())
-app.use(passport.session())
+app.use(teacherPassport.session())
 app.use(flash())
 
 app.get("/", (req, res) => {
