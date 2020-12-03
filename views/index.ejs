@@ -534,8 +534,8 @@ p {
                   <img src=" https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset="">
                 </div>
         
-                <div class="nav__menu" onclick="myFunction(this)">
-                  <ul class="nav__list">
+                <div class="nav__menu" >
+                  <ul class="nav__list" id="menu">
                     <li class="nav__item">
                       <a href="/" class="nav__link">Home</a>
                     </li>
@@ -563,7 +563,7 @@ p {
                   </ul>
                 </div>
         
-                <div class="hamburger" >
+                <div class="hamburger" onclick="toggleMobileMenu();" >
                   <div class="bar1"></div>
                   <div class="bar2"></div>
                   <div class="bar3"></div>
@@ -622,8 +622,9 @@ p {
 
 <script>
 
-function myFunction(x) {
-  x.classList.toggle("change");
+function toggleMobileMenu() {
+  document.querySelector('.nav__link').classList.toggle('active')
+  document.querySelector('.hamburger').classList.toggle()
 }
 
 function myfunction() {
