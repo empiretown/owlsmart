@@ -32,23 +32,19 @@ app.use(
 
 app.set('view engine', 'ejs')
 app.use(passport.initialize())  
-app.use(teacherPassport.initialize())
 app.use(passport.session()) 
-app.use(teacherPassport.session())
+app.use(teacherPassport.initialize())
+app.use(passport.session())
 app.use(flash())
 
-// homepage route
 app.get("/", (req, res) => {
     res.render("index");
 });
-// ends here
 
-// login users route
 app.get("/users/login", (req, res) => {
 
    res.render('login')
 });
-// ends here
 
 
 
