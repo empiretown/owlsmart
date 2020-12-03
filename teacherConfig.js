@@ -33,7 +33,7 @@ function teacherInitialized(passport) {
                     }
                     
                 } else {
-                    console.log(user);
+                    // console.log(teacher);
                     return done(null, false, ({message: "Users email invalid"}));
                 }
                 
