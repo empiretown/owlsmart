@@ -42,15 +42,15 @@ function teacherInitialized(newpassport) {
         )
     }
 
-    passport.use(new TeacherStrategy ({
-        usernameField: "email",
+    newpassport.use(new TeacherStrategy ({
+        usernameField: "username",
         passwordField: "password"
     }, authenticateTeacherUser)
     );
 
-    passport.serializeUser((teacher, done) => done(null, teacher.teacher_id));
+    newpassport.serializeUser((teacher, done) => done(null, teacher.teacher_id));
 
-    passport.deserializeUser((teacher_id, done) => {
+    newpassport.deserializeUser((teacher_id, done) => {
         pool.query(
             'SELECT * FROM teacher WHERE teacher_id = $1', [teacher_id], (err, result) => {
                 if (err) {
