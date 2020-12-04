@@ -7,7 +7,7 @@ var session = require ('express-session');
 const flash = require('express-flash');
 
 const passport = require('passport');
-const teacherPassport = require('newpassport')
+const teacherPassport = require('passport')
 
 const intializedPassport = require('./passportConfig');
  intializedPassport(passport);
