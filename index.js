@@ -12,8 +12,8 @@ const teacherPassport = require('passport')
 const intializedPassport = require('./passportConfig');
  intializedPassport(passport);
 
-// const teacherIntializedPassport = require('./teacherConfig');
-// teacherIntializedPassport(teacherPassport);
+const teacherIntializedPassport = require('./teacherConfig');
+teacherIntializedPassport(teacherPassport);
 
 const PORT = process.env.PORT || 4000
 
@@ -34,8 +34,8 @@ app.use(
 app.set('view engine', 'ejs')
 app.use(passport.initialize())  
 app.use(passport.session()) 
-// app.use(teacherPassport.initialize())
-// app.use(teacherPassport.session())
+app.use(teacherPassport.initialize())
+app.use(teacherPassport.session())
 app.use(flash())
 
 app.get("/", (req, res) => {
@@ -77,12 +77,12 @@ app.get("/users/dashboard", (req, res) => {
 // ends here the redirect to the user dashboard
 
 // teachers login and registration getters
-// app.get("/teacher/teacherslogin", (req, res) => {
-//     res.render("teacherslogin");
-// });
-// app.get("/teacher/teachersregister", (req, res) => {
-//     res.render("teachersregister");
-// });
+app.get("/teacher/teacherslogin", (req, res) => {
+    res.render("teacherslogin");
+});
+app.get("/teacher/teachersregister", (req, res) => {
+    res.render("teachersregister");
+});
 // ends here
 
 // lesson dashboard
@@ -297,7 +297,7 @@ app.post('/users/login', passport.authenticate('local', {
 })); 
 // ends here-->
 
-authenticate the teacher passport
+//authenticate the teacher passport
 app.post('/teacher/teacherslogin', teacherPassport.authenticate('local', {
     successRedirect: "/teacher/teacherdashboard",
     failureRedirect: "/teacher/teacherslogin",
