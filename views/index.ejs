@@ -563,10 +563,8 @@ p {
                   </ul>
                 </div>
         
-                <div class="hamburger" onclick="toggleMobileMenu();" >
-                  <div class="bar1"></div>
-                  <div class="bar2"></div>
-                  <div class="bar3"></div>
+                <div class="hamburger" >
+                  <i class="fa fa-bars"></i>
                   
                 </div>
               </nav>
@@ -621,7 +619,21 @@ p {
           <!-- End Footer -->
 
 <script>
+const nav__list = document.querySelector('.nav__list');
+const dropdownbtn = document.querySelector('.dropdownbtn');
+const hamburger =document.querySelector('.hamburger');
 
+hamburger.addEventListener('click', show)
+dropdownbtn.addEventListener('click', close);
+
+function show(){
+  nav__list.style.display ='flex';
+  nav__list.style.top ='0';
+}
+
+function close() {
+  nav__list.style.top ='-100%';
+}
 
 
 function myfunction() {
