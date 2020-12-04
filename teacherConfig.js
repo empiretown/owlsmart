@@ -6,10 +6,10 @@ const {Pool} = require('pg');
 const connectionString = process.env.DATABASE_URL || "postgres://owlsmart01user:owl@localhost:5432/owlsmart";
 const pool = new Pool ({connectionString: connectionString});
 
-function teacherInitialized(passport) {
-    const authenticateTeacherUser = (email, pass, done)=> {
+function teacherInitialized(newpassport) {
+    const authenticateTeacherUser = (username, pass, done)=> {
         pool.query(
-            'SELECT * FROM teacher WHERE email = $1::text', [email],
+            'SELECT * FROM teacher WHERE username = $1::text', [username],
             (err, results) => {
                 if (err) {
                     throw error;
@@ -17,14 +17,14 @@ function teacherInitialized(passport) {
                 console.log(results.rows)
 
                 if (results.rows.length > 0)  {
-                    const user = results.rows[0];
-                    console.log(user);
-                    if (user != null ){
-                        bcrypt.compare(pass, user.pass, (err, isMatch) =>{
+                    const teacher = results.rows[0];
+                    console.log(teacher);
+                    if (teacher!= null ){
+                        bcrypt.compare(pass, teacher.pass, (err, isMatch) =>{
                             if (err) {
                                console.log(err);
                             } else if(isMatch) {
-                                return done(null, user)
+                                return done(null, teacher)
                             } else {
                                 return done(null, false, ({message: "Password is incorrect. Try again?"}));
                             }
@@ -33,7 +33,7 @@ function teacherInitialized(passport) {
                     }
                     
                 } else {
-                    // console.log(teacher);
+                    //console.log(teacher);
                     return done(null, false, ({message: "Users email invalid"}));
                 }
                 
@@ -48,11 +48,11 @@ function teacherInitialized(passport) {
     }, authenticateTeacherUser)
     );
 
-    passport.serializeUser((users, done) => done(null, users.id));
+    passport.serializeUser((teacher, done) => done(null, teacher.teacher_id));
 
-    passport.deserializeUser((id, done) => {
+    passport.deserializeUser((teacher_id, done) => {
         pool.query(
-            'SELECT * FROM teacher WHERE id = $1', [id], (err, result) => {
+            'SELECT * FROM teacher WHERE teacher_id = $1', [teacher_id], (err, result) => {
                 if (err) {
                     throw err;
                 }
