@@ -12,8 +12,8 @@ const teacherPassport = require('passport')
 const intializedPassport = require('./passportConfig');
  intializedPassport(passport);
 
-const teacherIntializedPassport = require('./teacherConfig');
-teacherIntializedPassport(teacherPassport);
+// const teacherIntializedPassport = require('./teacherConfig');
+// teacherIntializedPassport(teacherPassport);
 
 const PORT = process.env.PORT || 4000
 
@@ -34,8 +34,8 @@ app.use(
 app.set('view engine', 'ejs')
 app.use(passport.initialize())  
 app.use(passport.session()) 
-app.use(teacherPassport.initialize())
-app.use(teacherPassport.session())
+// app.use(teacherPassport.initialize())
+// app.use(teacherPassport.session())
 app.use(flash())
 
 app.get("/", (req, res) => {
@@ -77,12 +77,12 @@ app.get("/users/dashboard", (req, res) => {
 // ends here the redirect to the user dashboard
 
 // teachers login and registration getters
-app.get("/users/teacherslogin", (req, res) => {
-    res.render("teacherslogin");
-});
-app.get("/user/teachersregister", (req, res) => {
-    res.render("teachersregister");
-});
+// app.get("/users/teacherslogin", (req, res) => {
+//     res.render("teacherslogin");
+// });
+// app.get("/user/teachersregister", (req, res) => {
+//     res.render("teachersregister");
+// });
 // ends here
 
 // lesson dashboard
@@ -204,87 +204,87 @@ if (errors.length > 0) {
 
 // teachers login process function
 
-app.post('/user/teachersregister', async (req, res) => {
+// app.post('/user/teachersregister', async (req, res) => {
   
-    const username = req.body.username;
-    const email = req.body.email;
-    const password = req.body.password;
-    const password2 = req.body.password2;
-    const schoolname = req.body.schoolname;
+//     const username = req.body.username;
+//     const email = req.body.email;
+//     const password = req.body.password;
+//     const password2 = req.body.password2;
+//     const schoolname = req.body.schoolname;
     
-    let errors = [];
+//     let errors = [];
     
-    console.log ({
-        username, 
-        email,
-        password,
-        password2,
-        schoolname
-    });
+//     console.log ({
+//         username, 
+//         email,
+//         password,
+//         password2,
+//         schoolname
+//     });
   
    
   
-    if (!username || !email || !password || !password2 || !schoolname) {
-        errors.push({message: "Please enter all fields"});
-    }
+//     if (!username || !email || !password || !password2 || !schoolname) {
+//         errors.push({message: "Please enter all fields"});
+//     }
     
   
-  if (password.length < 6) {
-        errors.push({ message: "Password must be at least 6 characters"});
-  }
+//   if (password.length < 6) {
+//         errors.push({ message: "Password must be at least 6 characters"});
+//   }
   
-  if (password !== password2) {
-      errors.push({ message: "Password do not match" });
-  }
-  if (errors.length > 0) {
-      res.render('register', {errors, username, email, password, password2});
-  } else {
-     let  hashedPassword = await bcrypt.hash(password, 10);
-      console.log(hashedPassword);
+//   if (password !== password2) {
+//       errors.push({ message: "Password do not match" });
+//   }
+//   if (errors.length > 0) {
+//       res.render('register', {errors, username, email, password, password2});
+//   } else {
+//      let  hashedPassword = await bcrypt.hash(password, 10);
+//       console.log(hashedPassword);
   
   
       
-      pool.query(
-          `SELECT * FROM teacher WHERE email = $1::text`,
-          [email],
-          (err, results) => {
-              if (err) {
-                  console.log(err)
-              }
+//       pool.query(
+//           `SELECT * FROM teacher WHERE email = $1::text`,
+//           [email],
+//           (err, results) => {
+//               if (err) {
+//                   console.log(err)
+//               }
               
-              console.log(results.rows);
+//               console.log(results.rows);
           
-              if(results.rows.length > 0) {
-                  errors.push({message: "Email already registered"});
-                  res.render("techersregister", { errors });
-                  return res.render("teachersregister", {
-                    message: "Username already registered"
-                  });
-         } else {
+//               if(results.rows.length > 0) {
+//                   errors.push({message: "Email already registered"});
+//                   res.render("techersregister", { errors });
+//                   return res.render("teachersregister", {
+//                     message: "Username already registered"
+//                   });
+//          } else {
                 
-             pool.query(`INSERT INTO teacher (Username, email, pass, schoolname)
-                              VALUES ($1::text, $2::text, $3::text, $4::text)
-                              RETURNING id, pass, schoolname`,
-                              [username, email, hashedPassword, schoolname],
-                       (err, results) => {
-                          if (err) {
-                              throw err;
-                          }
-                          console.log(results.rows);
-                          req.flash('success_msg', 'Welcome, you can login in');
-                          res.redirect('/users/teacherslogin');
-                       });
+//              pool.query(`INSERT INTO teacher (Username, email, pass, schoolname)
+//                               VALUES ($1::text, $2::text, $3::text, $4::text)
+//                               RETURNING id, pass, schoolname`,
+//                               [username, email, hashedPassword, schoolname],
+//                        (err, results) => {
+//                           if (err) {
+//                               throw err;
+//                           }
+//                           console.log(results.rows);
+//                           req.flash('success_msg', 'Welcome, you can login in');
+//                           res.redirect('/users/teacherslogin');
+//                        });
                     
   
-       }
+//        }
   
               
-      });
-  }
+//       });
+//   }
   
   
     
-  });
+//   });
   
 
 // ends here-->
