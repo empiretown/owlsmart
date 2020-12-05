@@ -298,11 +298,11 @@ app.post('/users/login', passport.authenticate('local', {
 // ends here-->
 
 //authenticate the teacher passport
-// app.post('/teacher/teacherslogin', teacherPassport.authenticate('login', {
-//     successRedirect: "/teacher/teacherdashboard",
-//     failureRedirect: "/teacher/teacherslogin",
-//     failureFlash: true
-// }));
+app.post('/user/teacherslogin', teacherPassport.authenticate('login', {
+    successRedirect: "/teacher/teacherdashboard",
+    failureRedirect: "/teacher/teacherslogin",
+    failureFlash: true
+}));
 // ends here
 
 
