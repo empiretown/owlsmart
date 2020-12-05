@@ -208,47 +208,47 @@ if (errors.length > 0) {
 
 app.post('/user/teachersregister', async (req, res) => {
   
-    const teacherusername = req.body.teacherusername;
-    const teacheremail = req.body.teacheremail;
-    const teacherpassword = req.body.teacherpassword;
-    const teacherpassword2 = req.body.teacherpassword2;
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    const password2 = req.body.password2;
     const schoolname = req.body.schoolname;
     
     let errors = [];
     
     console.log ({
-        teacherusername, 
-        teacheremail,
-        teacherpassword,
-        teacherpassword2,
+        username, 
+        email,
+        password,
+        password2,
         schoolname
     });
   
    
   
-    if (!teacherusername || !teacheremail || !teacherpassword || !teacherpassword2 || !schoolname) {
+    if (!username || !email || !password || !password2 || !schoolname) {
         errors.push({message: "Please enter all fields"});
     }
     
   
-  if (teacherpassword.length < 6) {
+  if (password.length < 6) {
         errors.push({ message: "Password must be at least 6 characters"});
   }
   
-  if (teacherpassword !== teacherpassword2) {
+  if (password !== password2) {
       errors.push({ message: "Password do not match" });
   }
   if (errors.length > 0) {
-      res.render('register', {errors, teacherusername, teacheremail, teacherpassword, teacherpassword2});
+      res.render('register', {errors, username, email, password, password2});
   } else {
-     let  hashedPassword = await bcrypt.hash(teacherpassword, 10);
+     let  hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
   
   
       
       pool.query(
           `SELECT * FROM teacher WHERE email = $1::text`,
-          [teacheremail],
+          [email],
           (err, results) => {
               if (err) {
                   console.log(err)
@@ -267,7 +267,7 @@ app.post('/user/teachersregister', async (req, res) => {
              pool.query(`INSERT INTO teacher (username, email, pass, schoolname)
                               VALUES ($1::text, $2::text, $3::text, $4::text)
                               RETURNING teacher_id, pass, schoolname`,
-                              [teacherusername, teacheremail, hashedPassword, schoolname],
+                              [username, email, hashedPassword, schoolname],
                        (err, results) => {
                           if (err) {
                               throw err;
