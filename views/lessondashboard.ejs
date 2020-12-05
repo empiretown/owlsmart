@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <title>LearnAfrica | Dashboard</title>
+  <style>
+    body {
+    margin: 0;
+   padding: 0;
+  }
+.log {
+ color: brown;
+}
+  /* cards for dashboard */
+  .column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(152,168,243);
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000000;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+  
+  </style>
+</head>
+<body>
+  
+
+  
+
+  <h4>
+    <div class="user-img"></div>
+    
+  </h4>
+  <section id="sideMenu"> 
+    <div class="sidebar">
+      <a href="/user/teacherdashboard"><i class="fa fa-fw fa-home"></i>Dashboard</a>
+      <a href="#services"><i class="fa fa-fw fa-wrench"></i> Modules</a>
+      <a href="#clients"><i class="fa fa-fw fa-user"></i> Calendar</a>
+      <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a class="log" href="/users/logout">Logout</a>
+    </div>
+    
+  </section>
+   
+  <section class="main">
+   <div>
+    <h1>Dashboard</h1>
+   </div>
+   <hr>
+
+   <div class="table">
+       <table class="table-box">
+           <thead class="text-center">
+               <tr>
+                   <th scope="col">Class Number</th>
+                   <th scope="col">Class Title</th>
+                   <th scope="col">Description</th>
+                   <th scope="col">Module</th>
+                   <th scope="col">Lesson Title</th>
+                   <th scope="col">Readings and Video</th>
+                   <th scope="col">Edit</th>
+                   <th scope="col">Delete</th>
+               </tr>
+              </thead>
+
+               <%
+                JSON.stringify(lessonData);
+               if(lessonData.rowCount != null){
+                var i=1;
+                lessonData.rows.forEach(function(data){ 
+                %>
+        <tr>
+            <td><%=i %></td>
+            <td><%=data.title%></td>
+            <td><%=data.descr%></td>
+            <td><%=data.lesson_num%></td>
+            <td><%=data.lesson_title%></td>
+            <td><%=data.lesson_body%></td>
+             
+
+            <!-- <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
+            <td><a href="/users/delete/<%=data.id%>">Delete</a></td> -->
+        </tr>
+        <a href=""><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
+        <span>Add New Lesson</span>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+           
+      
+   </div>
+  </section>
+
+</body>
+</html>
