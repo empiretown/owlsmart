@@ -304,6 +304,7 @@ app.post('/users/login', passport.authenticate('local', {
 app.post('/user/teacherslogin', teacherPassport.authenticate('local', {
     successRedirect: "/teacher/teacherdashboard",
     failureRedirect: "/user/teacherslogin",
+    session: false,
     failureFlash: true
 }));
 // ends here
