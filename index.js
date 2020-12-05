@@ -80,7 +80,7 @@ app.get("/users/dashboard", (req, res) => {
 app.get("/user/teacherslogin", (req, res) => {
     res.render("teacherslogin");
 });
-app.get("/teacher/teachersregister", (req, res) => {
+app.get("/user/teachersregister", (req, res) => {
     res.render("teachersregister");
 });
 // ends here
