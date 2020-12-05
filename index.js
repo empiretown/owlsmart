@@ -36,7 +36,7 @@ app.use(
 app.set('view engine', 'ejs')
 app.use(passport.initialize())  
 app.use(passport.session()) 
-app.use(teacherPassport.initialize())
+app.use(teacherPassport.initialize({userProperty: "login"}))
 app.use(teacherPassport.session())
 app.use(flash())
 
@@ -301,7 +301,7 @@ app.post('/users/login', passport.authenticate('local', {
 // ends here-->
 
 //authenticate the teacher passport
-app.post('/user/teacherslogin', teacherPassport.authenticate('local', {
+app.post('/user/teacherslogin', teacherPassport.authenticate('login', {
     successRedirect: "/teacher/teacherdashboard",
     failureRedirect: "/user/teacherslogin",
     session: false,
