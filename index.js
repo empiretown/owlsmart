@@ -14,7 +14,7 @@ const intializedPassport = require('./passportConfig');
  intializedPassport(passport);
 
 const teacherIntializedPassport = require('./teacherConfig');
-const { Passport } = require('passport');
+// const { Passport } = require('passport');
 teacherIntializedPassport(teacherPassport);
 
 const PORT = process.env.PORT || 4000
