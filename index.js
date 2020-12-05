@@ -247,8 +247,8 @@ app.post('/user/teachersregister', async (req, res) => {
   
       
       pool.query(
-          `SELECT * FROM teacher WHERE username = $1::text`,
-          [teacherusername],
+          `SELECT * FROM teacher WHERE email = $1::text`,
+          [teacheremail],
           (err, results) => {
               if (err) {
                   console.log(err)
