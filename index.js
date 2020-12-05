@@ -77,7 +77,7 @@ app.get("/users/dashboard", (req, res) => {
 // ends here the redirect to the user dashboard
 
 // teachers login and registration getters
-app.get("/teacher/teacherslogin", (req, res) => {
+app.get("/user/teacherslogin", (req, res) => {
     res.render("teacherslogin");
 });
 app.get("/teacher/teachersregister", (req, res) => {
