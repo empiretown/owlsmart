@@ -6,13 +6,13 @@ const {Pool} = require('pg');
 const connectionString = process.env.DATABASE_URL || "postgres://owlsmart01user:owl@localhost:5432/owlsmart";
 const pool = new Pool ({connectionString: connectionString});
 
-function initialize(passport) {
+function initialize(Passport) {
     const authenticateUser = (email, pass, done)=> {
         pool.query(
             'SELECT * FROM users WHERE email = $1::text', [email],
             (err, results) => {
                 if (err) {
-                    throw error;
+                    throw err;
                 } 
                 console.log(results.rows)
 
@@ -41,14 +41,14 @@ function initialize(passport) {
         )
     }
     
-    passport.use(new LocalStrategy ({
+    Passport.use(new LocalStrategy ({
         usernameField: "email",
         passwordField: "password"
     }, authenticateUser)
     );
-    passport.serializeUser((users, done) => done(null, users.id));
+    Passport.serializeUser((users, done) => done(null, users.id));
 
-    passport.deserializeUser((id, done) => {
+    Passport.deserializeUser((id, done) => {
         pool.query(
             'SELECT * FROM users WHERE id = $1', [id], (err, result) => {
                 if (err) {
