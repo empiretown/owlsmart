@@ -34,8 +34,8 @@ app.use(
 )
 
 app.set('view engine', 'ejs')
-app.use(Passport.initialize())  
-app.use(Passport.session()) 
+app.use(passport.initialize())  
+app.use(passport.session()) 
 app.use(teacherPassport.initialize())
 app.use(teacherPassport.session())
 app.use(flash())
