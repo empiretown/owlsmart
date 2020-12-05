@@ -7,9 +7,9 @@ const connectionString = process.env.DATABASE_URL || "postgres://owlsmart01user:
 const pool = new Pool ({connectionString: connectionString});
 
 function teacherInitialized(newpassport) {
-    const authenticateTeacherUser = (username, pass, done)=> {
+    const authenticateTeacherUser = (teacherusername, pass, done)=> {
         pool.query(
-            'SELECT * FROM teacher WHERE username = $1::text', [username],
+            'SELECT * FROM teacher WHERE username = $1::text', [teacherusername],
             (err, results) => {
                 if (err) {
                     throw error;

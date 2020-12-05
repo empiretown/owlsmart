@@ -272,7 +272,7 @@ app.post('/user/teachersregister', async (req, res) => {
                           }
                           console.log(results.rows);
                           req.flash('success_msg', 'Welcome, you can login in');
-                          res.redirect('/teacher/teacherslogin');
+                          res.redirect('/user/teacherslogin');
                        });
                     
   
@@ -298,9 +298,9 @@ app.post('/users/login', passport.authenticate('local', {
 // ends here-->
 
 //authenticate the teacher passport
-app.post('/user/teacherslogin', teacherPassport.authenticate('login', {
+app.post('/user/teacherslogin', teacherPassport.authenticate('local', {
     successRedirect: "/teacher/teacherdashboard",
-    failureRedirect: "/teacher/teacherslogin",
+    failureRedirect: "/user/teacherslogin",
     failureFlash: true
 }));
 // ends here
