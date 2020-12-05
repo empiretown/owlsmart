@@ -53,4 +53,4 @@ INSERT INTO teacher (username, email, pass,schoolname) VALUES ('Jude', 'jude1@gm
 
 CREATE USER owlsmart01user WITH PASSWORD 'owl';
 GRANT SELECT, INSERT, UPDATE ON classes, teacher, school, users to owlsmart01user;
-GRANT USAGE, SELECT ON SEQUENCE classes_class_id_seq, teacher_teacher_id_seq, user_id_seq TO owlsmart01user;
+GRANT USAGE, SELECT ON SEQUENCE users_id_seq TO owlsmart01user;
