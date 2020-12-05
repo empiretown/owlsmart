@@ -239,7 +239,7 @@ app.post('/user/teachersregister', async (req, res) => {
       errors.push({ message: "Password do not match" });
   }
   if (errors.length > 0) {
-      res.render('register', {errors, username, email, password, password2});
+      res.render('teachersregister', {errors, username, email, password, password2});
   } else {
      let  hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
