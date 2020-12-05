@@ -6,7 +6,7 @@ const {Pool} = require('pg');
 var session = require ('express-session');
 const flash = require('express-flash');
 
-const passport = require('passport').Passport,
+const Passport = require('passport').Passport,
     passport = new Passport(),
     teacherPassport = new Passport();
 
