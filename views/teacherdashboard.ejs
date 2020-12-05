@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <title>LearnAfrica | Dashboard</title>
+  <style>
+    body {
+    margin: 0;
+   padding: 0;
+  }
+.log {
+ color: brown;
+}
+  /* cards for dashboard */
+  .column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(152,168,243);
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000000;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+  
+  </style>
+</head>
+<body>
+  
+
+  
+
+  <h4>
+    <div class="user-img"></div>
+  
+  </h4>
+  <section id="sideMenu"> 
+    <div class="sidebar">
+      <a href="#home"><i class="fa fa-fw fa-home"></i>Dashboard</a>
+      <a href="#services"><i class="fa fa-fw fa-wrench"></i> Modules</a>
+      <a href="#clients"><i class="fa fa-fw fa-user"></i> Calendar</a>
+      <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      <a class="log" href="/users/logout">Logout</a>
+    </div>
+    
+  </section>
+   
+  <section class="main">
+   <div>
+    <h1>Dashboard</h1>
+   </div>
+
+   <div>
+    <div class="column">
+      <div class="card">
+        <img style="width: 100%"src="https://i.postimg.cc/Jhm936cm/170427-637363828865101045-16x9.jpg" alt="">
+        <a href="#"><h3 style="text-decoration: none;">Intro to HTML</h3></a>  
+      </div>
+    </div>
+
+      <div class="column">
+        <div class="card">
+          <img style="width: 100%;" src="https://i.postimg.cc/Jhm936cm/170427-637363828865101045-16x9.jpg" alt="">
+          <a href="#"><h3 style="text-decoration: none;">Intro to HTML II</h3></a>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="card">
+          <img style="width: 100%"src="https://i.postimg.cc/q74vtGN6/ux-design-seo-strategy-1024x518.jpg" alt="">
+          <a href="#"><h3 style="text-decoration: none;">User Experience</h3></a>
+        </div>
+      </div>
+      
+      <div class="column" style="padding-top: 25px; display:flex; align-items: flex-start;">
+        <div class="card">
+          <img style="width: 100%"src="https://i.postimg.cc/02yGSpJ3/Cybersecurity.jpg" alt="">
+          <a href="http://localhost:4000/lessondashboard"><h3 style="text-decoration: none;">Intro to Cybersecurity</h3></a>
+        </div>
+      </div>
+    
+    
+   </div>
+  </section>
+
+</body>
+</html>
+
