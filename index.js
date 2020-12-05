@@ -264,7 +264,7 @@ app.post('/user/teachersregister', async (req, res) => {
                 
              pool.query(`INSERT INTO teacher (Username, email, pass, schoolname)
                               VALUES ($1::text, $2::text, $3::text, $4::text)
-                              RETURNING id, pass, schoolname`,
+                              RETURNING teacher_id, pass, schoolname`,
                               [teacherusername, teacheremail, hashedPassword, schoolname],
                        (err, results) => {
                           if (err) {
