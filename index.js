@@ -204,7 +204,7 @@ if (errors.length > 0) {
 
 // teachers login process function
 
-app.post('/teacher/teachersregister', async (req, res) => {
+app.post('/user/teachersregister', async (req, res) => {
   
     const teacherusername = req.body.teacherusername;
     const teacheremail = req.body.email;
