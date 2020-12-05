@@ -42,7 +42,7 @@ function teacherInitialized(Passport) {
         )
     }
 
-    Passport.use("teacher-login", new TeacherStrategy ({
+    Passport.use('local- teacher-login', new TeacherStrategy ({
         usernameField: "username",
         passwordField: "password"
     }, authenticateTeacherUser)
