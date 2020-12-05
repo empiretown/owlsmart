@@ -247,8 +247,8 @@ app.post('/user/teachersregister', async (req, res) => {
   
       
       pool.query(
-          `SELECT * FROM teacher WHERE email = $1::text`,
-          [teacheremail],
+          `SELECT * FROM teacher WHERE username = $1::text`,
+          [teacherusername],
           (err, results) => {
               if (err) {
                   console.log(err)
@@ -264,7 +264,7 @@ app.post('/user/teachersregister', async (req, res) => {
                   });
          } else {
                 
-             pool.query(`INSERT INTO teacher (Username, email, pass, schoolname)
+             pool.query(`INSERT INTO teacher (username, email, pass, schoolname)
                               VALUES ($1::text, $2::text, $3::text, $4::text)
                               RETURNING teacher_id, pass, schoolname`,
                               [teacherusername, teacheremail, hashedPassword, schoolname],
@@ -301,7 +301,7 @@ app.post('/users/login', passport.authenticate('local', {
 // ends here-->
 
 //authenticate the teacher passport
-app.post('/user/teacherslogin', teacherPassport.authenticate('local', {
+app.post('/user/teacherslogin', teacherPassport.authenticate('teacher', {
     successRedirect: "/teacher/teacherdashboard",
     failureRedirect: "/user/teacherslogin",
     failureFlash: true
