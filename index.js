@@ -6,13 +6,15 @@ const {Pool} = require('pg');
 var session = require ('express-session');
 const flash = require('express-flash');
 
-const passport = require('passport');
-const teacherPassport = require('passport')
+const passport = require('passport').Passport,
+    passport = new Passport(),
+    teacherPassport = new Passport();
 
 const intializedPassport = require('./passportConfig');
  intializedPassport(passport);
 
 const teacherIntializedPassport = require('./teacherConfig');
+const { Passport } = require('passport');
 teacherIntializedPassport(teacherPassport);
 
 const PORT = process.env.PORT || 4000
