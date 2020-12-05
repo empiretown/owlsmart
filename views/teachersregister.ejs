@@ -625,7 +625,7 @@ button:hover{
                 <button type="submit" style=" padding-bottom: 20px;"class="btn">
                     Register 
                 </button>
-                <a style="  padding-bottom: 20px;"href="/user/teacherslogin">Registered ? Login here</a>
+                <a style=" padding-bottom: 20px;"href="/user/teacherslogin">Registered ? Login here</a>
             </form>
               </form>
             </div>
@@ -670,6 +670,25 @@ button:hover{
       <img src="https://i.postimg.cc/fTsd946b/logo.jpg" alt="" srcset=""><span><p>Copyright by Learn Africa</p></span>
 </footer>
     </div>
+    <script>
+    function myfunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdownbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+    </script>
     </body>
     </html>
 
