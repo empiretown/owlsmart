@@ -73,7 +73,7 @@ app.get("/users/logout", (req, res) => {
 // users dashboard
 app.get("/users/dashboard", (req, res) => {
     res.render("dashboard", {
-        user: req.user.username
+        // user: req.user.username
     })
 });
 // ends here the redirect to the user dashboard
