@@ -207,9 +207,9 @@ if (errors.length > 0) {
 app.post('/user/teachersregister', async (req, res) => {
   
     const teacherusername = req.body.teacherusername;
-    const teacheremail = req.body.email;
+    const teacheremail = req.body.teacheremail;
     const teacherpassword = req.body.teacherpassword;
-    const teacherpassword2 = req.body.password2;
+    const teacherpassword2 = req.body.teacherpassword2;
     const schoolname = req.body.schoolname;
     
     let errors = [];
