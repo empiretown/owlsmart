@@ -85,9 +85,9 @@ app.get("/users/logout", (req, res) => {
 
 app.get("/addnew/create/:class_id", (req, res) => {
     let class_id = req.params.class_id;
-    let userIsAdmin;
+    
 
-    res.render('addnew', {userIsAdmin: false, class_id: class_id});
+    res.render('addnew', {class_id: class_id});
 })
 
 // users dashboard
@@ -124,7 +124,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
             throw err;    
         }
 
-    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id} )
+    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: false,} )
     })
 })
 
