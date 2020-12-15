@@ -138,7 +138,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
 // teacher dashboard
 app.get("/teacher/teacherdashboard", (req, res) => {
-    res.render("teacherdashboard",  console.log({teacher: req.teacher.email})
+    res.render("teacherdashboard",  console.log({teacher: req.teacher.email}))
 });
 // ends here
 
