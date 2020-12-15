@@ -85,6 +85,7 @@ app.get("/users/logout", (req, res) => {
 
 app.get("/addnew/create/:class_id", (req, res) => {
     let class_id = req.params.class_id;
+    let userIsAdmin;
 
     res.render('addnew', {userIsAdmin: false, class_id: class_id});
 })
