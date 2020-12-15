@@ -129,7 +129,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
         }
 
 
-    res.render('lessondashboard', console.log(req.teacher.email), 
+    res.render('lessondashboard', 
     {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: false } )
     })
 
@@ -138,7 +138,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
 // teacher dashboard
 app.get("/teacher/teacherdashboard", (req, res) => {
-    res.render("teacherdashboard")
+    res.render("teacherdashboard",  console.log(req.teacher.email))
 });
 // ends here
 
