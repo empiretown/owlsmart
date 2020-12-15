@@ -81,7 +81,7 @@ app.get("/userlessondashboard/:class_id",  function (req, res,data) {
   })
 })
 
-app.get("/userlessondashboard" (req, res) => {
+app.get("/userlessondashboard", (req, res) => {
     res.render("userlessondashboard")
 })
 
