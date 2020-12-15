@@ -132,7 +132,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
 // teacher dashboard
 app.get("/teacher/teacherdashboard", (req, res) => {
-    res.render("teacherdashboard")
+    res.render("teacherdashboard", {userIsAdmin: true})
 });
 // ends here
 
