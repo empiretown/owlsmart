@@ -113,7 +113,7 @@ app.get("/user/teachersregister", (req, res) => {
 
 // lesson dashboard
 
-app.get("/lessondashboard/:class_id",  function (req, res,data) {
+app.get("/lessondashboard/:class_id",  function (req, res,data, userIsAdmin) {
 
       let class_id = req.params.class_id;
 
@@ -124,7 +124,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
             throw err;    
         }
 
-    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: false,} )
+    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: true,} )
     })
 })
 
@@ -132,7 +132,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
 // teacher dashboard
 app.get("/teacher/teacherdashboard", (req, res) => {
-    res.render("teacherdashboard", {userIsAdmin: true})
+    res.render("teacherdashboard")
 });
 // ends here
 
@@ -202,9 +202,7 @@ console.log("it's all done!");
             res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id});
         
      
-        console.log({
-            class_id
-           })
+        
         
     })
    
