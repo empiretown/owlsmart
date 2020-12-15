@@ -408,7 +408,7 @@ app.post('/user/teachersregister', async (req, res) => {
    
 // authenticate the user passport
 app.post('/users/login', passport.authenticate('local', {
-    successRedirect: "/userlessondashboard",
+    successRedirect: "/userlessondashboard/:class_id",
     failureRedirect: "/users/login",
     session: false,
     failureFlash: true
