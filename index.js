@@ -65,6 +65,21 @@ app.get("/users/login", (req, res) => {
    res.render('login')
 });
 
+app.get("/userlessondashboard/:class_id",  function (req, res,data) {
+
+    let class_id = req.params.class_id;
+  
+
+    var sql = `SELECT * FROM lesson WHERE class_id =${class_id}`;
+
+    pool.query(sql, function(err, data) {
+      if(err) {
+          throw err;    
+      }
+
+  res.render('userlessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id} )
+  })
+})
 
 
 // registers user
@@ -393,11 +408,13 @@ app.post('/user/teachersregister', async (req, res) => {
    
 // authenticate the user passport
 app.post('/users/login', passport.authenticate('local', {
-    successRedirect: "/teacher/teacherdashboard",
+    successRedirect: "/userlessondashboard/:class_id",
     failureRedirect: "/users/login",
     session: false,
     failureFlash: true
 })); 
+
+
 // ends here-->
 
 //authenticate the teacher passport
