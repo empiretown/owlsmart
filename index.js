@@ -105,9 +105,9 @@ app.get("/users/dashboard", (req, res) => {
 
 // teachers login and registration getters
 app.get("/user/teacherslogin", (req, res) => {
-    res.render("teacherslogin"), {user: req.user.email};
+    res.render("teacherslogin");
      console.log("I am here");
-    console.log(user)
+    console.log(res)
 });
 app.get("/user/teachersregister", (req, res) => {
     res.render("teachersregister");
