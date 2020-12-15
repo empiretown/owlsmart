@@ -5,7 +5,8 @@ var bcrypt = require('bcrypt');
 const {Pool} = require('pg');
 var session = require ('express-session');
 const flash = require('express-flash');
-var path = require('path')
+var path = require('path');
+const expressPermission = require('express-permission');
 //var urlparser = require('urlparser')
 
 const Passport = require('passport').Passport,
@@ -113,7 +114,8 @@ app.get("/user/teachersregister", (req, res) => {
 
 // lesson dashboard
 
-app.get("/lessondashboard/:class_id",  function (req, res,data) {
+app.get("/lessondashboard/:class_id", getAuth(), function (req, res,data) {
+
 
       let class_id = req.params.class_id;
 
@@ -378,9 +380,23 @@ app.post('/user/teachersregister', async (req, res) => {
   
     
  });
-  
+  // ends here-->
 
-// ends here-->
+
+   getAuth() = function (req, res,next) {
+     if(req.teacher) {
+         pool.getPerms({
+              teacher_id: req.teacher.teacher_id
+         })
+         .then(function(perms)) {
+            let allow = false;
+
+            perms.forEach(functio(perm) {
+                if(req.method == "POST" && perms.create) allow = true;
+            })
+         }
+     }
+  }
 
 // authenticate the user passport
 app.post('/users/login', passport.authenticate('local', {
