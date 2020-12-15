@@ -114,7 +114,7 @@ app.get("/user/teachersregister", (req, res) => {
 
 // lesson dashboard
 
-app.get("/lessondashboard/:class_id",  function (req, res,data, userIsAdmin) {
+app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
       
       let class_id = req.params.class_id;
@@ -126,7 +126,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data, userIsAdmin) {
             throw err;    
         }
 
-    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, ${teacher_id}: userIsAdmin} )
+    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, } )
     })
 })
 
