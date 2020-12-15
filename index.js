@@ -5,6 +5,8 @@ var bcrypt = require('bcrypt');
 const {Pool} = require('pg');
 var session = require ('express-session');
 const flash = require('express-flash');
+var path = require('path')
+var urlparser = require('urlparser')
 
 const Passport = require('passport').Passport,
     passport = new Passport(),
@@ -44,6 +46,19 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+app.get('/addnew/edit/:class_id', function(req,res, next){ 
+      var class_id = req.params.class_id;
+    var sql = `SELECT * FROM lesson WHERE class_id =${class_id}`;
+
+    pool.query(sql, function(err, data) {
+        if(err) {
+            throw err;
+
+            
+        }
+        res.render('addnew', {title: 'Edit Lesson', editData: data[0], class_id: class_id});
+    })
+});
 app.get("/users/login", (req, res) => {
 
    res.render('login')
@@ -68,7 +83,11 @@ app.get("/users/logout", (req, res) => {
 // logout all users ends here
 
 
+app.get("/addnew/create/:class_id", (req, res) => {
+    let class_id = req.params.class_id;
 
+    res.render('addnew', {userIsAdmin: false, class_id: class_id});
+})
 
 // users dashboard
 app.get("/users/dashboard", (req, res) => {
@@ -76,6 +95,10 @@ app.get("/users/dashboard", (req, res) => {
         // user: req.user.username
     })
 });
+
+
+
+
 // ends here the redirect to the user dashboard
 
 // teachers login and registration getters
@@ -89,26 +112,19 @@ app.get("/user/teachersregister", (req, res) => {
 
 // lesson dashboard
 
-app.get("/lessondashboard",  (req, res)=> {
-    var title = 'Hello World';
-    var sql = "SELECT title, descr, img, lesson_num, lesson_title, lesson_body FROM classes WHERE title=$1::text";
-    
-     var values = [title];
-      
-    pool.query(sql, values, function(err, data, fields){
-        if (err) {
-            console.log(err);
-        }
-        
+app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
-        res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data});
-        console.log({
-         data
-        })
-        console.log(
-            data.rows
-        )
-    });
+      let class_id = req.params.class_id;
+
+      var sql = `SELECT * FROM lesson WHERE class_id =${class_id}`
+
+      pool.query(sql, function(err, data) {
+        if(err) {
+            throw err;    
+        }
+
+    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id} )
+    })
 })
 
 // ends here
@@ -119,7 +135,83 @@ app.get("/teacher/teacherdashboard", (req, res) => {
 });
 // ends here
 
+//addnew
+app.post('/addnew/create/:class_id', function(req, res, next) {
+    const title = req.body.title;
+    const descr = req.body.descr;
+    const img = req.body.img;
+    const id = req.body.id;
+    const lesson_num = req.body.lesson_num;
+    const lesson_title = req.body.lesson_title;
+    const lesson_body = req.body.lesson_body;
+    let class_id = req.params.class_id;
+     console.log({
+         title,
+         descr,
+         img,
+         id,
+         lesson_body,
+         lesson_num,
+         lesson_title
+     })
+    var sql = `INSERT INTO lesson (lesson_num, lesson_title, class_id, lesson_body)
+             VALUES ($1, $2, $3, $4)`;
+          var values = [lesson_num, lesson_title, class_id, lesson_body];
+    pool.query(sql, values, function(err, data) {
+        if (err) {
+             throw err
+        };            
+            console.log("Lesson is inserted successfully");
+            //res.render('addnew');
 
+            
+     });
+   next();    
+},
+
+(req, res) => {
+console.log("it's all done!");
+
+    var title = req.body.title;
+    const descr = req.body.descr;
+    const img = req.body.img;
+    const id = req.body.id;
+    const lesson_num = req.body.lesson_num;
+    const lesson_title = req.body.lesson_title;
+    const lesson_body = req.body.lesson_body;
+    let class_id = req.params.class_id;
+    //  console.log({
+    //      title,
+    //      descr,
+    //      img,
+    //      id,
+    //      lesson_body,
+    //      lesson_num,
+    //      lesson_title
+    //  })
+
+    var sql =  `SELECT * FROM lesson WHERE class_id =${class_id}`;
+    
+    // var values = [title];
+
+    pool.query(sql, function(err, data, results){
+        if (err) throw err;
+           
+      
+            res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id});
+        
+     
+        console.log({
+            class_id
+           })
+        
+    })
+   
+   
+
+});
+
+app.set('views', path.join(__dirname, 'views'));
 
 
 // post the user information to the database
@@ -239,7 +331,7 @@ app.post('/user/teachersregister', async (req, res) => {
       errors.push({ message: "Password do not match" });
   }
   if (errors.length > 0) {
-      res.render('teachersregister', {errors, username, email, password, password2});
+      res.render('register', {errors, username, email, password, password2});
   } else {
      let  hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);

@@ -95,7 +95,7 @@
   </h4>
   <section id="sideMenu"> 
     <div class="sidebar">
-      <a href="/user/teacherdashboard"><i class="fa fa-fw fa-home"></i>Dashboard</a>
+      <a href="/teacher/teacherdashboard"><i class="fa fa-fw fa-home"></i>Dashboard</a>
       <a href="#services"><i class="fa fa-fw fa-wrench"></i> Modules</a>
       <a href="#clients"><i class="fa fa-fw fa-user"></i> Calendar</a>
       <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
@@ -124,6 +124,9 @@
                    <th scope="col">Delete</th>
                </tr>
               </thead>
+              <%= class_id %>
+              <a href=<%="/addnew/create/" +  class_id%>><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
+                <span>Add New Lesson</span>
 
                <%
                 JSON.stringify(lessonData);
@@ -140,11 +143,10 @@
             <td><%=data.lesson_body%></td>
              
 
-            <!-- <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
-            <td><a href="/users/delete/<%=data.id%>">Delete</a></td> -->
+             <td><a href=<%="/addnew/edit/" +  class_id%>>Edit</a></td>
+            <!-- <td><a href="/users/delete/<%=data.id%>">Delete</a></td>  -->
         </tr>
-        <a href=""><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
-        <span>Add New Lesson</span>
+        
         <%  i++; }) %>
         <% } else{ %>
             <tr>

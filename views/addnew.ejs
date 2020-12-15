@@ -91,11 +91,11 @@
 
   <h4>
     <div class="user-img"></div>
-    
+  
   </h4>
   <section id="sideMenu"> 
     <div class="sidebar">
-      <a href="#home"><i class="fa fa-fw fa-home"></i>Dashboard</a>
+      <a href="/teacher/teacherdashboard"><i class="fa fa-fw fa-home"></i>Dashboard</a>
       <a href="#services"><i class="fa fa-fw fa-wrench"></i> Modules</a>
       <a href="#clients"><i class="fa fa-fw fa-user"></i> Calendar</a>
       <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
@@ -108,36 +108,37 @@
    <div>
     <h1>Dashboard</h1>
    </div>
-
-   <div>
-    <div class="column">
-      <div class="card">
-        <img style="width: 100%"src="https://i.postimg.cc/Jhm936cm/170427-637363828865101045-16x9.jpg" alt="">
-        <a href="/lessondashboard/4"><h3 style="text-decoration: none;">Intro to HTML</h3></a>  
-      </div>
-    </div>
-
-      <div class="column">
-        <div class="card">
-          <img style="width: 100%;" src="https://i.postimg.cc/Jhm936cm/170427-637363828865101045-16x9.jpg" alt="">
-          <a href="/lessondashboard/3"><h3 style="text-decoration: none;">Intro to HTML II</h3></a>
-        </div>
-      </div>
+     <hr>
       
-      <div class="column">
-        <div class="card">
-          <img style="width: 100%"src="https://i.postimg.cc/q74vtGN6/ux-design-seo-strategy-1024x518.jpg" alt="">
-          <a href="/lessondashboard/2"><h3 style="text-decoration: none;">User Experience</h3></a>
+   <div class="class-info">
+       <h1>New Lesson</h1>
+    <form action=<%="/addnew/create/" +  class_id%> method="POST">
+        <div>
+            <input type="text" name="title" placeholder="Lesson Title"  value="">
         </div>
-      </div>
-      
-      <div class="column" style="padding-top: 25px; display:flex; align-items: flex-start;">
-        <div class="card">
-          <img style="width: 100%"src="https://i.postimg.cc/02yGSpJ3/Cybersecurity.jpg" alt="">
-          <a href="/lessondashboard/1"><h3 style="text-decoration: none;">Intro to Cybersecurity</h3></a>
+
+        <div>
+            <input type="text" name="descr" placeholder="Description" value="">
         </div>
-      </div>
-    
+
+        <div>
+            <input type="text" name="id" placeholder="Teacher Name"  value="">
+        </div>
+       
+        <div>
+            <input type="text" name="lesson_num" placeholder="Course code" value="">
+        </div>
+
+        <div>
+            <input type="text" name="lesson_title" placeholder="Caption"  value="">
+        </div>
+
+        <div>
+            <textarea type="text" name="lesson_body" placeholder="Description"  value=""></textarea>
+        </div>
+
+        <button type="submit">Add</button>
+    </form>
     
    </div>
   </section>
