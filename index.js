@@ -106,6 +106,8 @@ app.get("/users/dashboard", (req, res) => {
 // teachers login and registration getters
 app.get("/user/teacherslogin", (req, res) => {
     res.render("teacherslogin"), {user: req.user.email};
+     console.log("I am here");
+    console.log(user)
 });
 app.get("/user/teachersregister", (req, res) => {
     res.render("teachersregister");
@@ -116,7 +118,7 @@ app.get("/user/teachersregister", (req, res) => {
 
 app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
-      const schoolname = req.params.schoolname;
+    //   const schoolname = req.params.schoolname;
     //   console.log({schoolname});
 
       let class_id = req.params.class_id;
@@ -131,7 +133,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
 
     res.render('lessondashboard', 
-    {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: true} )
+    {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, } )
     })
 
 })
