@@ -116,17 +116,17 @@ app.get("/user/teachersregister", (req, res) => {
 
 app.get("/lessondashboard/:class_id",  function (req, res,data, userIsAdmin) {
 
-      let teacher_id = req.params.teacher_id
+      
       let class_id = req.params.class_id;
 
-      var sql = `SELECT * FROM lesson WHERE class_id =${class_id}; SELECT * FROM classes WHERE teacher_id =${teacher_id}`
+      var sql = `SELECT * FROM lesson WHERE class_id =${class_id}`
 
-      pool.query(sql, [1, 2], function(err, data) {
+      pool.query(sql, function(err, data) {
         if(err) {
             throw err;    
         }
 
-    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, teacher_id: userIsAdmin} )
+    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, ${teacher_id}: userIsAdmin} )
     })
 })
 
