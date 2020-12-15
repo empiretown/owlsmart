@@ -114,9 +114,9 @@ app.get("/user/teachersregister", (req, res) => {
 
 // lesson dashboard
 
-app.get("/lessondashboard/:class_id", getAuth(), function (req, res,data) {
+app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
-
+      let teacher_id = req.params.teacher_id
       let class_id = req.params.class_id;
 
       var sql = `SELECT * FROM lesson WHERE class_id =${class_id}`
@@ -126,7 +126,7 @@ app.get("/lessondashboard/:class_id", getAuth(), function (req, res,data) {
             throw err;    
         }
 
-    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: true,} )
+    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: teacher_id} )
     })
 })
 
@@ -383,21 +383,7 @@ app.post('/user/teachersregister', async (req, res) => {
   // ends here-->
 
 
-   getAuth() = function (req, res,next) {
-     if(req.teacher) {
-         pool.getPerms({
-              teacher_id: req.teacher.teacher_id
-         })
-         .then(function(perms)) {
-            let allow = false;
-
-            perms.forEach(functio(perm) {
-                if(req.method == "POST" && perms.create) allow = true;
-            })
-         }
-     }
-  }
-
+   
 // authenticate the user passport
 app.post('/users/login', passport.authenticate('local', {
     successRedirect: "/teacher/teacherdashboard",
