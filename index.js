@@ -117,7 +117,7 @@ app.get("/user/teachersregister", (req, res) => {
 app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
       const schoolname = req.params.schoolname;
-      console.log({schoolname});
+    //   console.log({schoolname});
 
       let class_id = req.params.class_id;
 
@@ -129,7 +129,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
         }
 
 
-    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id } )
+    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: false } )
     })
 
 })
