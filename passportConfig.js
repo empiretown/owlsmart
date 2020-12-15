@@ -33,7 +33,7 @@ function initialize(passport) {
                     }
                     
                 } else {
-                    console.log(user);
+                    // console.log(user);
                     return done(null, false, ({message: "Users email invalid"}));
                 }
                 
