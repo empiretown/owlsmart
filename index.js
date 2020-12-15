@@ -120,6 +120,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
     //   console.log({schoolname});
 
       let class_id = req.params.class_id;
+      
 
       var sql = `SELECT * FROM lesson WHERE class_id =${class_id}`
 
@@ -130,7 +131,7 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
 
 
     res.render('lessondashboard', 
-    {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: false } )
+    {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: true} )
     })
 
 })
