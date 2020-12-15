@@ -81,6 +81,9 @@ app.get("/userlessondashboard/:class_id",  function (req, res,data) {
   })
 })
 
+app.get("/userlessondashboard" (req, res) => {
+    res.render("userlessondashboard")
+})
 
 // registers user
 app.get("/user/register", (req, res) => {
@@ -408,7 +411,7 @@ app.post('/user/teachersregister', async (req, res) => {
    
 // authenticate the user passport
 app.post('/users/login', passport.authenticate('local', {
-    successRedirect: "/userlessondashboard/:class_id",
+    successRedirect: "/userlessondashboard",
     failureRedirect: "/users/login",
     session: false,
     failureFlash: true
