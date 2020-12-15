@@ -129,7 +129,8 @@ app.get("/lessondashboard/:class_id",  function (req, res,data) {
         }
 
 
-    res.render('lessondashboard', {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: false } )
+    res.render('lessondashboard', console.log(req.teacher.username), 
+    {title: 'Lesson Dashboard', lessonData: data, class_id: class_id, userIsAdmin: false } )
     })
 
 })
