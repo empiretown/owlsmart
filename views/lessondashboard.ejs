@@ -224,42 +224,7 @@ section{
   padding-top: 100px;
   
 }
-table{
-  table-layout: fixed;
-  width: 70%;
-  border-collapse: collapse;
-  
-}
 
-
-
-
-thead th:nth-child(2){
-  width: 20%;
-}
-
-thead th:nth-child(3){
-  width: 20%;
-}
-thead th:nth-child(4){
-  width: 35%;
-}
-
-th, td {
-  padding: 10px;
-}
-
-th {
-  letter-spacing: 2px;
-  text-align: center;
-}
-td{
-  letter-spacing: 1px;
-}
-
-tbody td {
-  text-align: center;
-}
 h1{
   padding-bottom: 30px;
 }
@@ -297,16 +262,45 @@ span{
 } */
 
 @media (orientation: portrait) {
-    td, th{
-      display: flex;
-       flex-direction: column;
-    }
+  table{
+  table-layout: fixed;
+  width: 70%;
+  border-collapse: collapse;
+
+  }
+th, td {
+  padding: 10px;
+}
+
+th {
+  letter-spacing: 2px;
+  text-align: center;
+}
+td{
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
 }
 
 @media (orientation: portrait) {
   thead th:nth-child(1){
   width: 30%;
 } 
+
+thead th:nth-child(2){
+  width: 20%;
+}
+thead th:nth-child(3){
+  width: 20%;
+}
+
+thead th:nth-child(4){
+  width: 35%;
+}
+
 }
   </style>
 </head>
