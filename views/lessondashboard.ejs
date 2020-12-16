@@ -275,10 +275,7 @@ img {
   }
 }
 
-.main{
-  padding-left:100px;
-  padding-top: 150px;
-}
+?
  /* table{
    table-layout: fixed;
    width: 80%;
@@ -324,64 +321,58 @@ img {
     </ul>
   </div>
 </div>
-  <section class="main">
-   <div>
-    <h1>Dashboard</h1>
+<div>
+  <h1>Dashboard</h1>
+ </div>
+ <hr>
 
-   </div>
-   <hr>
-    
-   <div class="table">
-       <table class="table-box">
-           <thead class="text-center">
-               <tr>
-                   <th scope="col">Class Number</th>
-                   <th scope="col">Class Title</th>
-                   <th scope="col">Description</th>
-                   <th scope="col">Module</th>
-                   <th scope="col">Lesson Title</th>
-                   <th scope="col">Readings and Video</th>
-                   <th scope="col">Edit</th>
-                   <th scope="col">Delete</th>
-               </tr>
-              </thead>
-              
+ <div class="table">
+     <table class="table-box">
+         <thead class="text-center">
+             <tr>
+                 <th scope="col">Class Number</th>
+                 <th scope="col">Class Title</th>
+                 <th scope="col">Description</th>
+                 <th scope="col">Module</th>
+                 <th scope="col">Lesson Title</th>
+                 <th scope="col">Readings and Video</th>
+                 <th scope="col">Edit</th>
+                 <th scope="col">Delete</th>
+             </tr>
+            </thead>
             
-              
-  
-                <a href=<%="/addnew/create/" +  class_id%>><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
-                  <span>Add New Lesson</span>
-               
-               
-               <%
-                JSON.stringify(lessonData);
-               if(lessonData.rowCount != null){
-                var i=1;
-                lessonData.rows.forEach(function(data){ 
-                %>
-        <tr>
-            <td><%=i %></td>
-            <td><%=data.title%></td>
-            <td><%=data.descr%></td>
-            <td><%=data.lesson_num%></td>
-            <td><%=data.lesson_title%></td>
-            <td><%=data.lesson_body%></td>
-             
-
-             <td><a href=<%="/addnew/edit/" +  class_id%>>Edit</a></td>
-            <!-- <td><a href="/users/delete/<%=data.id%>">Delete</a></td>  -->
-        </tr>
-        
-        <%  i++; }) %>
-        <% } else{ %>
-            <tr>
-                <td colspan="7">No Data Found</td>
-            </tr>
-        <% } %>
+            <a href=<%="/addnew/create/" +  class_id%>><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
+              <span>Add New Lesson</span>
+          
+             <%
+              JSON.stringify(lessonData);
+             if(lessonData.rowCount != null){
+              var i=1;
+              lessonData.rows.forEach(function(data){ 
+              %>
+      <tr>
+          <td><%=i %></td>
+          <td><%=data.title%></td>
+          <td><%=data.descr%></td>
+          <td><%=data.lesson_num%></td>
+          <td><%=data.lesson_title%></td>
+          <td><%=data.lesson_body%></td>
            
+
+           <td><a href=<%="/addnew/edit/" +  class_id%>>Edit</a></td>
+          <!-- <td><a href="/users/delete/<%=data.id%>">Delete</a></td>  -->
+      </tr>
       
-   </div>
-  </section>
+      <%  i++; }) %>
+      <% } else{ %>
+          <tr>
+              <td colspan="7">No Data Found</td>
+          </tr>
+      <% } %>
+         
+    
+ </div>
+</section>
 
 </body>
 </html>
