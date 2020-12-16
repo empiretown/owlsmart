@@ -292,7 +292,7 @@ img {
        <div class="three"></div>
     </div>
     <div class="top_menu">
-      <div class="logo"><img src="https://picsvg.com/svg/6GaylTQXWj.svg" style=" width: 70px; height: 70px;"       alt="" srcset=""></div>
+      <div class="logo"><img src="https://picsvg.com/svg/6MD4u8JpOs.svg" style=" width: 70px; height: 70px;"       alt="" srcset=""></div>
       <ul>
         <li ><a href="/users/logout">
           <i class="fas fa-sign-out-alt"></a></i>
@@ -321,27 +321,24 @@ img {
   </div>
 </div>
 
-<div class="container">
+<div class="table">
   <table class="table-box">
       <thead class="text-center">
-          <tr style="padding-right: 35px;">
-              <th scope="col">Course Code</th>
+          <tr>
+              <th scope="col">Class Number</th>
+              <th scope="col">Class Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Module</th>
               <th scope="col">Lesson Title</th>
-              <th scope="col" style="border-width: 10px;">Readings</th>
+              <th scope="col">Readings and Video</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
           </tr>
          </thead>
          
+         <a href=<%="/addnew/create/" +  class_id%>><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
+           <span>Add New Lesson</span>
        
-      
-          
-              <a href=<%="/addnew/create/" +  class_id%>><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
-                <span>Add New Lesson</span>
-            
-           
-          
-          
           <%
            JSON.stringify(lessonData);
           if(lessonData.rowCount != null){
@@ -350,7 +347,8 @@ img {
            %>
    <tr>
        <td><%=i %></td>
-
+       <td><%=data.title%></td>
+       <td><%=data.descr%></td>
        <td><%=data.lesson_num%></td>
        <td><%=data.lesson_title%></td>
        <td><%=data.lesson_body%></td>
