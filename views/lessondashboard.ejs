@@ -223,7 +223,7 @@ section{
 }
 table{
   table-layout: fixed;
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
 }
 
@@ -254,7 +254,7 @@ td{
   letter-spacing: 1px;
 }
 
-td {
+tbody td {
   text-align: center;
 }
 h1{
@@ -338,7 +338,7 @@ hr{
                 var i=1;
                 lessonData.rows.forEach(function(data){ 
                 %>
-        
+        <tbody>
         <tr>
             <td><%=i %></td>
             <td><%=data.title%></td>
@@ -352,7 +352,7 @@ hr{
               <td><a href="#">Delete</a></td> -->
         </tr>
 
-        
+      </tbody>
         <%  i++; }) %>
         <% } else{ %>
             <tr>
