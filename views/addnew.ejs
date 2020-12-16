@@ -3,85 +3,319 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
   <title>LearnAfrica | Dashboard</title>
+  
+	<script>
+		$(document).ready(function(){
+			$(".hamburger").click(function(){
+			   $(".wrapper").toggleClass("collapse");
+			});
+		});
+  </script>
   <style>
-    body {
+    *{
     margin: 0;
    padding: 0;
+   list-style: none;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
   }
-.log {
- color: brown;
-}
-  /* cards for dashboard */
-  .column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
+  .body{
+    background-color: #fff;
   }
+  .wrapper{
+  margin: 10px;
 }
-
-/* Style the counter cards */
-.card{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-.sidebar {
-  height: 100%;
-  width: 160px;
+.wrapper .top_navbar{
+  width: calc(100% - 20px);
+  height: 60px;
+  display: flex;
   position: fixed;
-  z-index: 1;
+  top: 10px;
+}
+
+.wrapper .top_navbar .hamburger{
+  width: 70px;
+  height: 100%;
+  background: #483A70;
+  padding: 15px 17px;
+  border-top-left-radius: 20px;
+  cursor: pointer;
+}
+
+.wrapper .top_navbar .hamburger div{
+  width: 35px;
+  height: 4px;
+  background: #92a6e2;
+  margin: 5px 0;
+  border-radius: 5px;
+
+}
+
+.wrapper .top_navbar .top_menu{
+  width: calc(100% - 70px);
+  height: 100%;
+  background: #fff;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.wrapper .top_navbar .top_menu .logo{
+  color:#483A70;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.wrapper .top_navbar .top_menu ul{
+  display: flex;
+}
+
+.wrapper .top_navbar .top_menu ul li a{
+  display: block;
+  margin: 0 10px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: 1px solid #483A70;
+  border-radius: 50%;
+  color: #2e4ead;
+}
+
+.wrapper .top_navbar .top_menu ul li a:hover{
+  background: #4360b5;
+  color: #fff;
+  
+}
+
+.wrapper .top_navbar .top_menu ul li a:hover i{
+  color: #fff;
+}
+
+.wrapper .sidebar{
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  background: #483A70;
+  width: 200px;
+  height: calc(100% - 80px);
+  border-bottom-left-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .sidebar ul li a{
+    display: block;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 1px;
+    color: #92a6e2;
+    white-space: nowrap;
+}
+
+.wrapper .sidebar ul li a:before{
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
-  background-color: rgb(152,168,243);
-  overflow-x: hidden;
-  padding-top: 16px;
+  width: 3px;
+  height: 100%;
+  background: #92a6e2;
+  display: none;
 }
 
-.sidebar a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #000000;
+.wrapper .sidebar ul li a span.icon{
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.wrapper .sidebar ul li a span.title{
+  display: inline-block;
+}
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+  background: #4360b5;
+  color: #fff;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
   display: block;
 }
 
-.sidebar a:hover {
-  color: #f1f1f1;
+.wrapper .main_container{
+  width: (100% - 200px);
+  margin-top: 70px;
+  margin-left: 200px;
+  padding: 15px;
+  transition: all 0.3s ease;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
+.wrapper .main_container .item{
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 22px;
 }
 
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+.wrapper.collapse .sidebar{
+  width: 70px;
 }
+
+.wrapper.collapse .sidebar ul li a{
+  text-align: center; 
+}
+
+.wrapper.collapse .sidebar ul li a span.icon{
+  margin: 0;
+}
+
+.wrapper.collapse .sidebar ul li a span.title{
+  display: none;
+}
+
+.wrapper.collapse .main_container{
+  width: (100% - 70px);
+  margin-left: 70px;
+}
+
+
+img {
   
+  width: 90%;
+  height: 90%;
+
+}
+
+.wrapper-cards {
+  width: 80%;
+  margin: 20px auto;
+  padding-left: 197.5px;
+  padding-top: 100px;
+  
+}
+
+.cards_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.cards_wrap .card_item {
+  width: 25%;
+  padding: 10px;
+}
+
+.cards_wrap .card_inner {
+  box-shadow: 0 4px 4px 0  rgba(0, 0, 0, 0.2);
+  
+  background: #fff;
+}
+
+.cards_wrap .card_top {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.cards_wrap .card_bottom {
+  padding: 15px;
+}
+
+.cards_wrap .card_bottom .card_category {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cards_wrap .card_bottom .card_info {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px dashed #0071bc;
+}
+
+.cards_wrap .card_bottom .card_info .title {
+  color: #0071bc;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.cards_wrap .card_bottom .card_creator {
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .cards_wrap .card_item {
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards_wrap .card_item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 528px) {
+  .cards_wrap .card_item {
+    width: 100%;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+    </div>
+    <div class="top_menu">
+        <div class="logo"> <svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="50.000000pt" height="50.000000pt" viewBox="0 0 99.000000 99.000000"  preserveAspectRatio="xMidYMid meet">  <g transform="translate(0.000000,99.000000) scale(0.100000,-0.100000)" fill="#210938" stroke="none"> <path d="M315 786 c-104 -33 -173 -91 -221 -186 -37 -75 -40 -188 -6 -271 31 -74 126 -161 209 -190 77 -27 170 -21 243 16 44 22 157 127 168 156 2 4 -16 10 -40 14 -51 7 -101 -11 -137 -49 -24 -26 -25 -26 -45 -7 -32 28 -61 41 -96 41 -38 0 -106 -33 -122 -60 -15 -23 -33 -27 -24 -5 3 8 1 68 -5 132 l-10 118 33 28 c65 55 156 58 202 8 17 -19 19 -19 61 13 69 53 130 55 189 7 18 -15 18 -15 11 9 -10 33 -51 98 -84 134 -39 43 -94 75 -158 91 -68 18 -114 18 -168 1z m182 -41 c52 -16 143 -86 143 -111 0 -8 -10 -14 -23 -14 -13 0 -47 -12 -77 -27 -48 -24 -56 -25 -84 -13 -84 35 -175 14 -231 -52 -26 -31 -26 -32 -19 -147 10 -168 22 -185 100 -140 61 35 98 36 158 8 l44 -22 51 32 c80 49 97 37 35 -25 -50 -49 -112 -74 -187 -74 -85 0 -117 11 -187 65 -85 66 -113 117 -118 221 -4 75 -2 89 22 136 31 62 48 84 97 121 74 56 176 72 276 42z"></path> <path d="M617 458 c-9 -23 -15 -43 -13 -45 2 -2 15 1 28 6 17 6 29 6 37 -2 6 -6 13 -8 17 -5 7 8 -34 88 -45 88 -4 0 -15 -19 -24 -42z"></path> <path d="M706 484 c-11 -29 -7 -76 7 -71 6 2 11 11 9 20 -1 8 2 18 8 22 15 9 12 45 -4 45 -8 0 -17 -7 -20 -16z"></path> <path d="M750 444 c0 -19 5 -34 10 -34 6 0 10 9 10 20 0 11 5 20 10 20 18 0 10 18 -10 23 -17 4 -20 0 -20 -29z"></path> <path d="M520 435 c0 -25 4 -35 15 -35 11 0 14 7 9 25 -4 16 -2 25 6 25 6 0 14 -9 17 -20 6 -23 23 -27 23 -6 0 32 -13 46 -41 46 -26 0 -29 -3 -29 -35z"></path> <path d="M800 435 c0 -19 5 -35 10 -35 6 0 10 9 10 19 0 11 3 26 6 35 4 11 1 16 -10 16 -12 0 -16 -10 -16 -35z"></path> <path d="M850 455 c-17 -21 -8 -50 18 -53 12 -2 22 1 22 7 0 6 -7 11 -15 11 -8 0 -15 5 -15 10 0 6 9 10 20 10 24 0 27 15 4 24 -21 8 -20 8 -34 -9z"></path> <path d="M464 444 c3 -9 6 -24 6 -35 0 -10 5 -19 10 -19 6 0 10 10 10 23 0 13 5 28 12 35 9 9 6 12 -16 12 -22 0 -27 -4 -22 -16z"></path> <path d="M912 433 c-14 -31 -8 -40 28 -45 21 -2 26 2 28 26 6 48 -35 62 -56 19z"></path> <path d="M395 441 c-3 -7 3 -11 17 -12 l23 0 -22 -9 c-41 -17 -23 -45 20 -34 21 5 24 10 18 32 -8 28 -43 42 -56 23z"></path> <path d="M270 426 c0 -23 22 -76 31 -76 11 0 11 6 -2 53 -10 36 -29 51 -29 23z"></path> <path d="M327 424 c-23 -23 7 -69 37 -58 22 8 20 21 -4 27 -11 3 -20 11 -19 19 0 10 2 10 6 1 2 -7 11 -13 20 -13 8 0 13 6 11 13 -5 14 -40 21 -51 11z"></path> </g> </svg> </div>
+      <ul>
+        <li ><a href="/users/logout">
+          <i class="fas fa-sign-out-alt"></a></i>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar">
+      <ul>
+        <li><a href="/teacher/teacherdashboard">
+          <span class="icon"><i class='bx bxs-grid-alt' ></i></span>
+          <span class="title">Dashboard</span></a></li>
+        <li><a href="/lessondasboard/:class_id">
+          <span class="icon"><i class='bx bx-library'></i></span>
+          <span class="title">Modules</span>
+          </a></li>
+        <li><a href="#">
+          <span class="icon"><i class='bx bx-calendar' ></i></i></span>
+          <span class="title">Calendar</span>
+          </a></li>
+        <li><a href="#" class="active">
+          <span class="icon"><i class='bx bxs-contact'></i></span>
+          <span class="title">Contact</span>
+          </a></li>
+    </ul>
+  </div>
+</div>
   </style>
 </head>
 <body>
