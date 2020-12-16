@@ -274,13 +274,16 @@ img {
     width: 100%;
   }
 }
-
-.container{
+main{
+  padding-left: 300px;
+  padding-top: 200px;
+}
+#container{
   display: flex;
   justify-content: center;
   align-self: center;
-  padding-left: 100px;
-  padding-top: 200px;
+
+  
   
 }
 
@@ -330,13 +333,13 @@ img {
 <body>
  
    
-  <section class="container">
+  <section class="main">
    <div>
     <h1>Add New Lesson</h1>
    </div>
      <hr>
       
-   <div class="class-info">
+   <div class="class-info" id="container">
     
        <form action=<%="/addnew/create/" +  class_id%> method="POST">
         
