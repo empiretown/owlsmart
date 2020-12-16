@@ -286,9 +286,12 @@ h1, hr{
   
   
 }
+.field{
+  padding: 10px;
+}
 input{
   padding-bottom: 20px;
-  
+
 }
 
   </style>
@@ -347,7 +350,7 @@ input{
        <form action=<%="/addnew/create/" +  class_id%> method="POST">
         
        
-        <div>
+        <div class="field">
             <input type="text" name="lesson_num" placeholder="Course code" value="">
         </div>
 
