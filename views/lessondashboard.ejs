@@ -247,6 +247,16 @@ th, td {
   padding: 10px;
 }
 
+th {
+  letter-spacing: 2px;
+}
+td{
+  letter-spacing: 1px;
+}
+
+td {
+  text-align: center;
+}
 h1{
   padding-bottom: 30px;
 }
@@ -328,6 +338,7 @@ hr{
                 var i=1;
                 lessonData.rows.forEach(function(data){ 
                 %>
+        
         <tr>
             <td><%=i %></td>
             <td><%=data.title%></td>
@@ -340,6 +351,7 @@ hr{
              <!-- <td><a href=<%="/addnew/edit/" +  class_id%>>Edit</a></td>
               <td><a href="#">Delete</a></td> -->
         </tr>
+
         
         <%  i++; }) %>
         <% } else{ %>
