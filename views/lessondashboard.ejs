@@ -330,8 +330,8 @@ img {
    <div>
     <h1>Dashboard</h1>
 
-    
    </div>
+   <hr>
     
    <div class="table">
        <table class="table-box">
@@ -347,10 +347,14 @@ img {
                    <th scope="col">Delete</th>
                </tr>
               </thead>
-               
-              <a href=<%="/addnew/create/" +  class_id%>><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
-                <span>Add New Lesson</span>
+              
             
+              
+  
+                <a href=<%="/addnew/create/" +  class_id%>><img style="width:30px" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png"></button>
+                  <span>Add New Lesson</span>
+               
+               
                <%
                 JSON.stringify(lessonData);
                if(lessonData.rowCount != null){
