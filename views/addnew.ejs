@@ -301,7 +301,11 @@ button{
   padding-top: 20px;
   border-radius: 2rem;
   width: 80px;
+  background-color: #483a70 ;
 
+}
+button:hover{
+  background-color: #483a70 ;
 }
 .butn {
 padding-left: 50px;
@@ -364,15 +368,15 @@ padding-left: 50px;
         
        
         <div class="field">
-            <input type="text" name="lesson_num" placeholder="Course code" value="">
+            <input type="text" name="lesson_num" placeholder="Course code" value="required">
         </div>
 
         <div class="field">
-            <input type="text" name="lesson_title" placeholder="Caption"  value="">
+            <input type="text" name="lesson_title" placeholder="Caption"  value="required">
         </div>
 
         <div class="field">
-            <textarea type="text" name="lesson_body" placeholder="Description"  value=""></textarea>
+            <textarea type="text" name="lesson_body" placeholder="Description"  value="required"></textarea>
         </div>
         <div class="butn">
           <button type="submit">Add</button>
