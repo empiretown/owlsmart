@@ -295,7 +295,33 @@ tbody {
 }
 }
 
-media 
+
+@media (orientation: portrait) {
+  thead th:nth-child(1){
+  width: 30%;
+} 
+
+thead th:nth-child(2){
+  width: 20%;
+}
+thead th:nth-child(3){
+  width: 20%;
+}
+
+thead th:nth-child(4){
+  width: 35%;
+}
+
+thead{
+  display: block;
+  font-size: 14px;
+}
+
+
+}
+
+
+@media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
@@ -332,30 +358,8 @@ only screen and (max-width: 760px),
 		white-space: nowrap;
 	}
 	
-@media (orientation: portrait) {
-  thead th:nth-child(1){
-  width: 30%;
-} 
-
-thead th:nth-child(2){
-  width: 20%;
+	
 }
-thead th:nth-child(3){
-  width: 20%;
-}
-
-thead th:nth-child(4){
-  width: 35%;
-}
-
-thead{
-  display: block;
-  font-size: 14px;
-}
-
-
-}
-
   </style>
 </head>
 <body>
