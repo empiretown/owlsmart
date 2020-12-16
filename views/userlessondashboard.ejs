@@ -363,37 +363,43 @@ span{
   </div>
    
    
-  <div class="table">
-    <table class="table-box">
-        <thead class="text-center">
-            <tr>
-                <th scope="col">Class Number</th>
-                <th scope="col">Module</th>
-                <th scope="col">Lesson Title</th>
-                <th scope="col">Readings and Video</th>
-                
-            </tr>
-           </thead>
-           
-           
+  <section class="main">
+    <div>
+     <h1>Intro to Cybersecurity</h1>
+    </div>
+    <hr>
+ 
+    <div class="table">
+        <table class="table-box">
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">Class Number</th>
+                    <th scope="col">Module</th>
+                    <th scope="col">Lesson Title</th>
+                    <th scope="col">Readings and Video</th>
+                    
+                </tr>
+               </thead>
+               
+               <a href=<%="/addnew/create/" +  class_id%>><img class="button" src="https://i.postimg.cc/NMDgzLnj/icons8-plus-64-1.png">
+                 <span>Add New Lesson</span>
+             
+                <%
+                 JSON.stringify(lessonData);
+                if(lessonData.rowCount != null){
+                 var i=1;
+                 lessonData.rows.forEach(function(data){ 
+                 %>
+         <tbody>
          
-            <%
-             JSON.stringify(lessonData);
-            if(lessonData.rowCount != null){
-             var i=1;
-             lessonData.rows.forEach(function(data){ 
-             %>
-     <tbody>
-     
-         <td scope="col"><%=i %></td>
-         <!-- <td scope="col"><%=data.title%></td>
-         <td scope="col"><%=data.descr%></td> -->
-         <td scope="col"><%=data.lesson_num%></td>
-         <td scope="col"><%=data.lesson_title%></td>
-         <td scope="col"><%=data.lesson_body%></td>
-          
-           
-        </tbody>
+             <td scope="col"><%=i %></td>
+             <!-- <td scope="col"><%=data.title%></td>
+             <td scope="col"><%=data.descr%></td> -->
+             <td scope="col"><%=data.lesson_num%></td>
+             <td scope="col"><%=data.lesson_title%></td>
+             <td scope="col"><%=data.lesson_body%></td>
+              
+         </tbody>
         
         <%  i++; }) %>
         <% } else{ %>
