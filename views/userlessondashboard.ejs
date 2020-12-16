@@ -224,44 +224,12 @@ section{
   padding-top: 100px;
   
 }
-table{
-  table-layout: fixed;
-  width: 70%;
-  border-collapse: collapse;
-  
+
+th,td{
+  padding: 20px;
+  word-spacing: inherit;
 }
 
-
-thead th:nth-child(1){
-  width: 30%;
-} 
-
-thead th:nth-child(2){
-  width: 20%;
-}
-
-thead th:nth-child(3){
-  width: 15%;
-}
-thead th:nth-child(4){
-  width: 35%;
-}
-
-th, td {
-  padding: 10px;
-}
-
-th {
-  letter-spacing: 2px;
-  text-align: center;
-}
-td{
-  letter-spacing: 1px;
-}
-
-tbody td {
-  text-align: center;
-}
 h1{
   padding-bottom: 30px;
 }
@@ -277,28 +245,7 @@ hr{
 span{
   top: -10px;
 }
-@media (orientation: landscape) {
-    table, thead, th, td, tbody td,.button, span{
-     display: flex;
-    }
-    thead{
-      display: flex;
-      flex-direction: row;
-    }
-    th,td {
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: row;
-      align-self: center;
-      padding: 15px;
-    }
-    tbody td{
-     display: flex;
-     justify-content: center;
-    }
-}
-
-/* @media (orientation: portrait) {
+/* @media (orientation: landscape) {
     table, thead, th, td, tbody td,.button, span{
      display: flex;
     }
@@ -309,7 +256,7 @@ span{
     th,td {
       display: flex;
       justify-content: space-evenly;
-      flex-direction: column;
+      flex-direction: row;
       align-self: center;
       padding: 15px;
     }
@@ -318,6 +265,101 @@ span{
      justify-content: center;
     }
 } */
+
+@media (orientation: portrait) {
+  table{
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+
+  }
+th, td {
+  padding: 20px;
+  word-spacing: inherit;
+
+}
+
+th {
+  letter-spacing: 2px;
+  text-align: center;
+}
+td{
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+tbody {
+  font-size: 15px;
+}
+}
+
+
+@media (orientation: portrait) {
+  thead th:nth-child(1){
+  width: 30%;
+} 
+
+thead th:nth-child(2){
+  width: 20%;
+}
+thead th:nth-child(3){
+  width: 20%;
+}
+
+thead th:nth-child(4){
+  width: 35%;
+}
+
+thead{
+  display: block;
+  font-size: 14px;
+}
+
+
+}
+
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		z-index:-1px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	
+}
   </style>
 </head>
 <body>
